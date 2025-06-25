@@ -380,7 +380,7 @@ th {
   font-style: normal;
   display: block;
   font-size: 1em;
-  border-left: 5px solid #0093a0;
+  border-left: 5px solid #002D5F;
   padding: 2em;
   box-sizing: border-box;
   margin: 0 0em 2em;
@@ -533,7 +533,7 @@ kbd kbd {
 }
 
 .upload_grp .upload_btn, input[type=reset], input[type=submit], button,
-input[type=button], .btn-secondary, .btn-primary, .btn-purple, .btn-red, .btn-orange, .btn-yellow, .btn-blue, .btn-green, .btn {
+input[type=button], .btn-secondary, .btn-primary, .btn-text, .btn-purple, .btn-red, .btn-orange, .btn-yellow, .btn-blue, .btn-green, .btn {
   font-size: 0.938em;
   background-image: none;
   display: inline-block;
@@ -710,22 +710,22 @@ input[type=button], .btn-secondary, .btn-primary, .btn-purple, .btn-red, .btn-or
   cursor: pointer;
 }
 
-.btn-primary {
-  background-color: #0093a0;
+.btn-primary, .btn-text {
+  background-color: #002d5f;
   color: #fff;
   border-radius: 4px;
   transition: 0.3s ease-out;
 }
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover, .btn-primary:focus, .btn-text:hover, .btn-text:focus {
   cursor: pointer;
   color: #fff;
   box-shadow: none;
 }
-.btn-primary:active {
+.btn-primary:active, .btn-text:active {
   transform: translateY(3px);
 }
-.btn-primary.active {
-  background: #007c87;
+.btn-primary.active, .btn-text.active {
+  background: #002146;
   cursor: pointer;
 }
 
@@ -1104,7 +1104,7 @@ img.loaded {
   line-height: 1;
 }
 .tabs > .tabItem.active > a {
-  background-color: #0093a0;
+  background-color: #002D5F;
   color: #FFF;
 }
 @media screen and (max-width: 767px) {
@@ -1133,14 +1133,14 @@ img.loaded {
   box-sizing: border-box;
 }
 .tabs > .tabItem > a:hover {
-  background: #0093a0;
+  background: #002D5F;
 }
 
 .example-2 .tabItem > a:hover {
-  background: #754a96;
+  background: #755934;
 }
 .example-2 .tabItem.active > a {
-  background: #754a96;
+  background: #755934;
 }
 
 .active + .tabContent {
@@ -1675,7 +1675,7 @@ select::-ms-expand {
   margin-left: 1%;
   display: flex;
   flex: 1 1 46%;
-  position: relative;
+  flex-direction: column-reverse;
   margin-bottom: 0.2em;
 }
 @media screen and (max-width: 767px) {
@@ -1689,63 +1689,27 @@ select::-ms-expand {
 }
 .labelEffect > label {
   width: 100%;
-  color: #666;
+  color: #222;
   align-items: flex-start;
   font-size: 1em;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 0px;
-  bottom: 0;
-  height: 100%;
-  padding: 0.6em 0.5em 0.1em;
+  font-weight: bold;
+  padding: 0.6em 0;
   transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-.labelEffect > label:before, .labelEffect > label:after {
-  content: "";
-  display: block;
-  width: 0%;
-  left: 50%;
-  position: absolute;
-  bottom: -2px;
-  height: 2px;
-  background: #21baff;
-  transition: 0.2s ease all;
 }
 .labelEffect input, .labelEffect textarea, .labelEffect select {
   flex: 1 1 70%;
   border-radius: 0.2em;
 }
-.labelEffect input:focus ~ label, .labelEffect input.used ~ label, .labelEffect textarea:focus ~ label, .labelEffect textarea.used ~ label, .labelEffect select:focus ~ label, .labelEffect select.used ~ label {
-  bottom: 0;
-  font-size: 0.813em;
-  color: #00646d;
-  padding: 0;
-  pointer-events: none;
-  height: calc(100% + 1.95em);
-}
-.labelEffect input:focus ~ label:before, .labelEffect input.used ~ label:before, .labelEffect textarea:focus ~ label:before, .labelEffect textarea.used ~ label:before, .labelEffect select:focus ~ label:before, .labelEffect select.used ~ label:before {
-  width: 50%;
-  left: 0%;
-}
-.labelEffect input:focus ~ label:after, .labelEffect input.used ~ label:after, .labelEffect textarea:focus ~ label:after, .labelEffect textarea.used ~ label:after, .labelEffect select:focus ~ label:after, .labelEffect select.used ~ label:after {
-  width: 50%;
-  right: 50%;
-}
-.labelEffect input.used ~ label:before, .labelEffect textarea.used ~ label:before, .labelEffect select.used ~ label:before {
-  width: 0%;
-  left: 50%;
-}
-.labelEffect input.used ~ label:after, .labelEffect textarea.used ~ label:after, .labelEffect select.used ~ label:after {
-  width: 0%;
-  left: 50%;
-}
 .labelEffect [class^=btn], .labelEffect .additonal {
-  flex: 0 1 10%;
   min-width: 0em;
-  margin: 0em 0 0 0.5em;
+  margin: 0 0 0 0.5em;
   padding: 0.2em 0.25em;
   font-size: 0.938em;
+  position: absolute;
+  right: 2px;
+  top: 44px;
+  width: 60px;
+  height: 45px;
 }
 .labelEffect .btn-icon {
   flex: 0 1 3em;
@@ -1756,17 +1720,14 @@ select::-ms-expand {
   padding: 0.2em 0.25em;
   font-size: 0.938em;
   position: absolute;
-  right: 0.5em;
-  top: 0.35em;
+  right: 2px;
 }
 .labelEffect .btn-icon i {
   font-size: 1.25em;
 }
 .labelEffect .additional {
   white-space: nowrap;
-  font-size: 0.875rem;
-  color: #666;
-  padding: 0 0.5em;
+  padding: 0.5em 0;
   display: flex;
   align-items: center;
 }
@@ -1809,7 +1770,6 @@ select::-ms-expand {
 }
 
 .flex-form {
-  font-size: 0.938em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -1834,7 +1794,7 @@ select::-ms-expand {
   display: flex;
   flex-flow: row wrap;
   padding: 0em;
-  margin-bottom: 1.5em;
+  margin: 0.5em 0;
   align-items: center;
   align-content: flex-start;
   position: relative;
@@ -1845,14 +1805,13 @@ select::-ms-expand {
   }
 }
 .flex-form .form_grp .help {
-  font-size: 0.813em;
-  color: #888;
+  font-size: 0.9em;
+  color: #333;
   text-align: right;
   margin-left: auto;
   padding: 0 0.5em;
-  position: absolute;
-  bottom: -1.75em;
-  right: 0;
+  display: block;
+  width: 100%;
 }
 .flex-form .form_grp.error input {
   background: #F5F5F5;
@@ -1874,10 +1833,32 @@ select::-ms-expand {
   width: 50%;
   right: 50%;
 }
+.flex-form .form_grp.error input[type=text],
+.flex-form .form_grp.error input[type=reset],
+.flex-form .form_grp.error input[type=file],
+.flex-form .form_grp.error input[type=tel],
+.flex-form .form_grp.error input[type=password],
+.flex-form .form_grp.error input[type=date],
+.flex-form .form_grp.error textarea,
+.flex-form .form_grp.error select {
+  box-shadow: 0 0 0 2px #FF3E4D;
+  outline: none;
+}
+.flex-form .form_grp._column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.flex-form .form_grp._column .form_title {
+  padding: 0.5em 0;
+}
+.flex-form .form_grp._column .form_content {
+  padding-left: 0;
+}
 .flex-form .datepick {
   display: flex;
   flex: 0 1 100%;
   flex-flow: row wrap;
+  align-items: flex-start;
   position: relative;
 }
 .flex-form .datepick .help {
@@ -1885,14 +1866,13 @@ select::-ms-expand {
 }
 .flex-form .datepick input.calendar {
   width: 100%;
-  padding-right: 2em;
 }
 .flex-form .datepick .btn {
   position: absolute;
   padding: 0;
   margin: 0;
-  right: 0.5em;
-  top: 0.4em;
+  right: 0;
+  bottom: 3px;
   min-width: 0em;
   border: none;
   align-self: flex-start;
@@ -1923,7 +1903,7 @@ select::-ms-expand {
   position: absolute;
   content: "~";
   left: -1em;
-  top: 0.4em;
+  top: 50%;
   font-size: 1.125rem;
 }
 .flex-form .datepick .btn {
@@ -1943,11 +1923,7 @@ select::-ms-expand {
   }
 }
 .flex-form .form_title {
-  position: absolute;
-  font-size: 0.75rem;
-  color: #999;
-  top: -1.75em;
-  left: 0em;
+  font-weight: bold;
 }
 .flex-form .form_content {
   display: flex;
@@ -1955,7 +1931,8 @@ select::-ms-expand {
   flex: 1 1 calc(100% - 150px);
   align-items: flex-start;
   align-self: stretch;
-  padding: 0 0.25em 0.5em;
+  padding-left: 0.75em;
+  width: 100%;
 }
 .flex-form .form_content [class^=notice] {
   flex: 1 1 100%;
@@ -1987,6 +1964,7 @@ select::-ms-expand {
   flex: 0 1 8em;
   text-align: center;
   min-width: 8em;
+  flex-direction: row;
 }
 .flex-form .form_content.form_inline .labelEffect.short input, .flex-form .form_content.form_inline .labelEffect.zip input, .flex-form .form_content.form_inline .labelEffect.ext input, .flex-form .form_content.form_inline .labelEffect.county input, .flex-form .form_content.form_inline .labelEffect.dist input {
   text-align: center;
@@ -2008,14 +1986,7 @@ select::-ms-expand {
   color: #999;
 }
 .flex-form .form_content .help {
-  font-size: 0.813em;
-  color: #888;
-  text-align: right;
-  margin-left: auto;
-  padding: 0 0.5em;
-  position: absolute;
-  bottom: -1.75em;
-  right: 0;
+  background: #f8f8f8;
 }
 .flex-form .form_content p, .flex-form .form_content p.notice {
   font-size: 0.875rem;
@@ -2210,7 +2181,6 @@ textarea,
 select,
 button {
   color: #333;
-  font-size: 0.938em;
   border: 1px solid transparent;
   padding: 0.75em;
   box-sizing: border-box;
@@ -2332,7 +2302,6 @@ input[type=submit].active {
 
 textarea {
   color: #333;
-  font-size: 0.938em;
   border: 1px solid transparent;
   padding: 0.75em;
   box-sizing: border-box;
@@ -2352,11 +2321,11 @@ textarea:focus {
   }
 }
 
-input[type=text], input[type=calendar], input[type=email], input[type=tel], input[type=time], input[type=url] {
+input[type=text], input[type=date], input[type=email], input[type=tel], input[type=time], input[type=url] {
   border-radius: 0.2em;
   background: #F4F4F4;
 }
-input[type=text]:hover, input[type=text]:focus, input[type=calendar]:hover, input[type=calendar]:focus, input[type=email]:hover, input[type=email]:focus, input[type=tel]:hover, input[type=tel]:focus, input[type=time]:hover, input[type=time]:focus, input[type=url]:hover, input[type=url]:focus {
+input[type=text]:hover, input[type=text]:focus, input[type=date]:hover, input[type=date]:focus, input[type=email]:hover, input[type=email]:focus, input[type=tel]:hover, input[type=tel]:focus, input[type=time]:hover, input[type=time]:focus, input[type=url]:hover, input[type=url]:focus {
   background: #F5F5F5;
 }
 
@@ -2365,9 +2334,10 @@ input[type=reset]:focus,
 input[type=file]:focus,
 input[type=tel]:focus,
 input[type=password]:focus,
+input[type=date]:focus,
 textarea:focus,
 select:focus {
-  box-shadow: 0px 0px 0px 1px transparent;
+  box-shadow: 0 0 0 2px #21baff;
   outline: none;
 }
 
@@ -2402,14 +2372,15 @@ select:-moz-focusring {
 .select .select-value {
   flex: 1 1 100%;
   color: #333;
-  font-size: 0.938em;
   border: 1px solid transparent;
   padding: 0.75em;
   box-sizing: border-box;
   transition: 0.3s ease-out;
-  background: url(../images/basic/icon_select_arrow.svg) no-repeat right center;
+  background: url(../images/basic/icon_select_arrow.svg) no-repeat right 10px center #F5F5F5;
   background-size: 20px;
-  height: 2.4em;
+  height: 42px;
+  padding: 0.75em 2em 0.75em 0.75em;
+  border-radius: 0.2em;
 }
 .select .select-value:hover {
   outline: none;
@@ -2607,7 +2578,7 @@ abbr {
   top: 0.25rem;
   left: 0.3rem;
   z-index: 9;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
   transition: transform 200ms ease, background 200ms;
 }
 .checkSwitch_switch:after {
@@ -2615,12 +2586,11 @@ abbr {
   content: "關閉";
   right: -2.5rem;
   font-size: 0.938rem;
-  color: #888;
   white-space: nowrap;
 }
 input:checked + .checkSwitch_switch {
-  background: #2fe60b;
-  box-shadow: 0px 0px 0px 2px #2fe60b inset;
+  background: #755934;
+  box-shadow: 0px 0px 0px 2px #755934 inset;
 }
 input:checked + .checkSwitch_switch:before {
   transform: translate(125%, 0);
@@ -2628,7 +2598,6 @@ input:checked + .checkSwitch_switch:before {
 }
 input:checked + .checkSwitch_switch:after {
   content: "開啟";
-  color: #5CB85C;
   font-weight: bold;
 }
 
@@ -3041,8 +3010,8 @@ a.more {
   height: 2.5em;
   margin: 0.5em auto 0.5em;
   line-height: 2.5;
-  color: #0093a0;
-  border: 1px solid #0093a0;
+  color: #002D5F;
+  border: 1px solid #002D5F;
   text-align: center;
   overflow: hidden;
   vertical-align: middle;
@@ -3073,7 +3042,7 @@ a.more:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0093a0;
+  background: #002D5F;
   transform: scale(0);
   transition-property: transform;
   transition-duration: 0.2s;
@@ -4038,7 +4007,7 @@ header .toggle_menu_btn {
   background: #F1F1F1;
 }
 header .toggle_menu_btn:hover:after, header .toggle_menu_btn:focus:after {
-  background: #754a96;
+  background: #755934;
 }
 header .toggle_menu_btn:hover:before, header .toggle_menu_btn:focus:before {
   border: 3px solid #FFF;
@@ -4252,7 +4221,6 @@ aside {
   height: 100%;
   position: fixed;
   transform: translateZ(0);
-  background: #f1eee8;
   padding-top: 4em;
   padding-bottom: 3em;
   z-index: 9999;
@@ -4319,12 +4287,12 @@ aside h1 a img {
 }
 aside h1 a span {
   display: flex;
-  color: #fff;
+  color: #002D5F;
   flex: 1 1 1em;
   left: 0;
 }
 aside .now_edit {
-  background: #0093a0;
+  background: #002D5F;
   padding: 1em 0.5em;
   height: 6em;
   flex-flow: row wrap;
@@ -4397,7 +4365,6 @@ aside .now_edit .info .btn_grp {
   padding: 0;
   text-align: right;
   display: flex;
-  justify-content: flex-end;
   align-self: flex-end;
 }
 aside .now_edit .info .btn_grp .btn {
@@ -4411,7 +4378,6 @@ aside:before {
   content: "";
   position: fixed;
   height: 4em;
-  background: #cabfa9;
   box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.1);
   top: 0;
   left: 0;
@@ -4427,7 +4393,7 @@ aside .copyright {
   position: fixed;
   bottom: 0;
   padding: 0 0.15em 0.3em;
-  color: #FFF;
+  color: #949494;
   left: 0;
   width: inherit;
   font-size: 0.75em;
@@ -4594,7 +4560,7 @@ aside .sub_nav ul li a:before {
   position: absolute;
   width: 0.5em;
   height: 0.5em;
-  border: 2px solid #0093a0;
+  border: 2px solid #002D5F;
   border-left: none;
   border-top: none;
   content: "";
@@ -4681,7 +4647,7 @@ aside .close_btn:after {
   position: absolute;
 }
 aside .close_btn:hover, aside .close_btn:focus {
-  background: #754a96;
+  background: #755934;
 }
 aside nav {
   overflow: hidden;
@@ -4723,9 +4689,7 @@ aside nav hr {
   opacity: 0.2;
 }
 aside nav .divider {
-  color: #fff;
-  text-shadow: none;
-  opacity: 0.3;
+  color: #333;
   margin: 0.2em 1em;
 }
 aside nav ul {
@@ -4749,11 +4713,12 @@ aside nav > ul > li.active {
 }
 aside nav > ul > li.active:before {
   position: absolute;
-  background: #00eab9;
+  background: #002D5F;
   width: 5px;
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 1;
   content: "";
 }
 aside nav > ul > li.active > a img {
@@ -4761,15 +4726,14 @@ aside nav > ul > li.active > a img {
   top: 0.72em;
 }
 aside nav > ul > li.active > a span {
-  color: #fff;
-  text-shadow: none;
+  color: #002D5F;
 }
 aside nav > ul > li.li_hasChild:after {
   position: absolute;
   width: 6px;
   height: 6px;
   transform: rotate(-45deg);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid #755934;
   border-left: none;
   border-top: none;
   content: "";
@@ -4792,7 +4756,7 @@ aside nav > ul > li a {
   display: block;
   position: relative;
   width: 100%;
-  padding: 0.6em 0.5em 0.6em 3.25em;
+  padding: 0.6em 3em 0.6em 3.25em;
   font-size: 0.875rem;
   font-weight: bold;
 }
@@ -4806,9 +4770,8 @@ aside nav > ul > li a img {
   transform: scale(0.8);
 }
 aside nav > ul > li a span {
-  color: #403421;
+  color: #333;
   font-size: 0.938rem;
-  transition: 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 aside nav > ul > li ul {
   display: none;
@@ -4819,10 +4782,9 @@ aside nav > ul > li li:last-child {
 }
 aside nav > ul > li li a {
   padding: 0.7em 2em 0.5em 3.25em;
-  text-shadow: 1px 1px 2px RGBA(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
-  animation: fadeInLeft_ani 0.6s ease-out;
+  animation: fadeInLeft_ani 0.3s ease-out;
   border-bottom: none;
 }
 aside nav > ul > li li a:after {
@@ -4839,10 +4801,13 @@ aside nav > ul > li li a:after {
   transition: 0.3s ease-out;
 }
 aside nav > ul > li li a span {
-  color: white;
+  color: #333;
 }
 aside nav > ul > li li:hover span, aside nav > ul > li li:focus span, aside nav > ul > li li.active span {
   color: #fff;
+}
+aside nav > ul > li li:hover a, aside nav > ul > li li:focus a, aside nav > ul > li li.active a {
+  background: #755934;
 }
 aside nav > ul > li li:hover a:after, aside nav > ul > li li:focus a:after, aside nav > ul > li li.active a:after {
   right: 1em;
@@ -5004,7 +4969,7 @@ div.function ul li.icon_forward a:before {
   animation: scaleUp 0.5s ease-out;
 }
 .modal h2 {
-  border-bottom: 1px solid #0093a0;
+  border-bottom: 1px solid #002D5F;
   padding-bottom: 0.5em;
 }
 .modal .close {
@@ -5173,15 +5138,15 @@ div.function ul li.icon_forward a:before {
   border: #CCC solid 1px;
 }
 .pagination .page li a:hover, .pagination .page li a:focus {
-  background: #00c2d3;
+  background: #004592;
   color: #fff !important;
-  border: #00c2d3 solid 1px;
+  border: #004592 solid 1px;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
 }
 .pagination .page li.active a {
   color: #FFF;
-  border: 1px solid #00c2d3;
-  background: #00c2d3;
+  border: 1px solid #004592;
+  background: #004592;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
 }
 .pagination .page li.last a:after, .pagination .page li.last a:before, .pagination .page li.next a:before, .pagination .page li.prev a:before, .pagination .page li.first a:after, .pagination .page li.first a:before {
@@ -5268,7 +5233,7 @@ div.function ul li.icon_forward a:before {
 }
 .pagination .items a {
   padding: 0 5px;
-  color: #0093a0;
+  color: #002D5F;
   text-decoration: none;
 }
 
@@ -5353,7 +5318,7 @@ div.function ul li.icon_forward a:before {
   filter: invert(0%);
 }
 .function_panel .share ul li a:focus {
-  outline: 1px solid #0093a0;
+  outline: 1px solid #002D5F;
 }
 .function_panel .share a.shareButton {
   display: block;
@@ -5403,14 +5368,14 @@ div.tag ul li a {
 }
 div.tag ul li a:hover, div.tag ul li a:focus {
   color: #FFF;
-  border: 1px solid #754a96;
+  border: 1px solid #755934;
   text-shadow: none;
-  background: #8f62b1;
+  background: #987444;
 }
 div.tag ul li.active a {
   color: #FFF;
-  border: 1px solid #754a96;
-  background: #754a96;
+  border: 1px solid #755934;
+  background: #755934;
   text-shadow: none;
 }
 
@@ -5713,6 +5678,11 @@ html {
   scroll-behavior: smooth;
 }
 
+hr {
+  border: 1px solid #eaeaea;
+  width: 100%;
+}
+
 code, pre {
   font-size: 14px;
   line-height: 1.45em;
@@ -5801,10 +5771,10 @@ code, pre {
   border-radius: 0.5em;
 }
 .demo_info a {
-  color: #5a3974 !important;
+  color: #523e24 !important;
 }
 .demo_info a:hover, .demo_info a:focus {
-  color: #754a96 !important;
+  color: #755934 !important;
 }
 .demo_info pre {
   border-radius: 0.5em;
@@ -5825,7 +5795,8 @@ h4 {
 }
 
 body {
-  background: #d9dce0;
+  background: url(../images/bg.jpg) 50% top no-repeat;
+  background-attachment: fixed;
 }
 body .overlay {
   background: rgba(0, 0, 0, 0.5);
@@ -5850,7 +5821,7 @@ body .overlay {
 .wrapper {
   width: 100%;
   margin: 0px auto;
-  background: #d9dce0;
+  background: rgba(255, 255, 255, 0.75);
 }
 @media screen and (max-width: 767px) {
   .wrapper {
@@ -5900,9 +5871,9 @@ body .overlay {
 
 .btn-back {
   margin-left: 1em;
-  border: 1px solid #754a96;
-  border-bottom: 2px solid #754a96;
-  background: #754a96;
+  border: 1px solid #755934;
+  border-bottom: 2px solid #755934;
+  background: #755934;
   padding-left: 0.2em;
   padding-right: 0.6em;
   font-weight: normal;
@@ -5994,8 +5965,8 @@ body .overlay {
   padding: 0.5em;
   min-width: 0em;
   font-size: 0.875em;
-  background: #754a96;
-  border: 1px solid #754a96;
+  background: #755934;
+  border: 1px solid #755934;
 }
 .grid .title .btn-adv i {
   opacity: 1;
@@ -6340,7 +6311,7 @@ body .overlay {
   width: 100%;
   border-radius: 0.5em;
   position: relative;
-  padding: 1em;
+  padding: 1.5em;
   flex: 1 1 calc(80% - 260px);
   margin: 0 auto 0.5em 0;
 }
@@ -6570,7 +6541,7 @@ body .overlay {
   filter: invert(100%);
 }
 .content_block .chart_info .question a:hover, .content_block .chart_info .question a:focus, .widget_block .chart_info .question a:hover, .widget_block .chart_info .question a:focus, .publish_block .chart_info .question a:hover, .publish_block .chart_info .question a:focus {
-  background: #754a96;
+  background: #755934;
 }
 
 .content_block .flex-form {
@@ -6852,7 +6823,6 @@ table td .dropdown .dropdown-content .btn {
   padding: 0.25em !important;
   background: #FFF;
   border: 1px solid #DDD !important;
-  text-shadow: none;
 }
 table td .dropdown .dropdown-content .btn i {
   margin-right: 0.5em;
@@ -6993,7 +6963,6 @@ table td .dropdown .dropdown-content .btn.btn-red:hover, table td .dropdown .dro
   opacity: 1;
 }
 .control_panel .btn-red {
-  text-shadow: none;
   color: #333;
 }
 .control_panel .btn-red i {
@@ -7101,7 +7070,6 @@ table td .dropdown .dropdown-content .btn.btn-red:hover, table td .dropdown .dro
   color: #FFF;
   text-align: center;
   line-height: 2em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   top: 0.5em;
   left: 0.5em;
   z-index: 1;
@@ -7197,7 +7165,6 @@ table td .dropdown .dropdown-content .btn.btn-red:hover, table td .dropdown .dro
 }
 .card .item .tag_grp .tag {
   background: RGBA(0, 0, 0, 0.5);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
   font-size: 0.875em;
   padding: 0.2em 0.75em;
   border-radius: 0.3em;
@@ -7251,7 +7218,7 @@ table td .dropdown .dropdown-content .btn.btn-red:hover, table td .dropdown .dro
   margin-bottom: 0;
 }
 .card .item .card_info ul li span {
-  color: #0093a0;
+  color: #002D5F;
 }
 .card .item .btn-grp {
   display: block;
@@ -7402,7 +7369,6 @@ table td .dropdown .dropdown-content .btn.btn-red:hover, table td .dropdown .dro
   line-height: 1.25em;
   max-width: 380px;
   padding: 1em;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 99;
 }
@@ -8051,7 +8017,7 @@ table td .dropdown .dropdown-content .btn.btn-red:hover, table td .dropdown .dro
 .right_sidebar ._head a.close {
   position: absolute;
   width: 2em;
-  background: #0093a0;
+  background: #002D5F;
   left: -3em;
   top: 0;
   padding: 0.5em;
@@ -8222,7 +8188,7 @@ h1.title, h2.title {
   line-height: 1.5em;
   list-style: none;
   margin: 0 0 0.7em 0;
-  border-left: solid 5px #0093a0;
+  border-left: solid 5px #002D5F;
   padding: 0.8em 1.5em 0.8em;
   background: #F2F2F2;
   box-sizing: border-box;
@@ -8602,7 +8568,7 @@ h1.title, h2.title {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #004d54;
+  background: #000913;
   opacity: 0.4;
   content: "";
 }
