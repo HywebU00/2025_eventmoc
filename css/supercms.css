@@ -1804,6 +1804,14 @@ select::-ms-expand {
     flex-basis: 100%;
   }
 }
+.flex-form .form_grp._titleAlignTop {
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.flex-form .form_grp._titleAlignTop .form_title {
+  margin-top: 2px;
+  min-width: 90px;
+}
 .flex-form .form_grp .help {
   font-size: 0.9em;
   color: #333;
@@ -1844,14 +1852,14 @@ select::-ms-expand {
   box-shadow: 0 0 0 2px #FF3E4D;
   outline: none;
 }
-.flex-form .form_grp._column {
+.flex-form .form_grp._row {
   flex-direction: column;
   align-items: flex-start;
 }
-.flex-form .form_grp._column .form_title {
+.flex-form .form_grp._row .form_title {
   padding: 0.5em 0;
 }
-.flex-form .form_grp._column .form_content {
+.flex-form .form_grp._row .form_content {
   padding-left: 0;
 }
 .flex-form .datepick {
