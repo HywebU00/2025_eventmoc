@@ -1672,10 +1672,9 @@ select::-ms-expand {
 }
 
 .labelEffect {
-  margin-left: 1%;
   display: flex;
-  flex: 1 1 46%;
-  flex-direction: column-reverse;
+  flex: 1 1 100%;
+  flex-direction: column;
   margin-bottom: 0.2em;
 }
 @media screen and (max-width: 767px) {
@@ -1684,7 +1683,6 @@ select::-ms-expand {
   }
 }
 .labelEffect.password_toggle input[type=text], .labelEffect.password_toggle input[type=password], .labelEffect.hasBtn input[type=text], .labelEffect.hasBtn input[type=password] {
-  padding-right: 3em;
   letter-spacing: 0.1em;
 }
 .labelEffect > label {
@@ -1702,14 +1700,10 @@ select::-ms-expand {
 }
 .labelEffect [class^=btn], .labelEffect .additonal {
   min-width: 0em;
-  margin: 0 0 0 0.5em;
-  padding: 0.2em 0.25em;
+  margin: 0;
+  padding: 0.2em 1em;
   font-size: 0.938em;
-  position: absolute;
-  right: 2px;
-  top: 44px;
-  width: 60px;
-  height: 45px;
+  height: 48px;
 }
 .labelEffect .btn-icon {
   flex: 0 1 3em;
@@ -1729,6 +1723,7 @@ select::-ms-expand {
   white-space: nowrap;
   padding: 0.5em 0;
   display: flex;
+  gap: 16px;
   align-items: center;
 }
 .labelEffect .additional img {
@@ -1789,14 +1784,13 @@ select::-ms-expand {
   }
 }
 .flex-form .form_grp {
-  flex: 0 1 100%;
   flex: 0 1 calc(100% - 0em);
   display: flex;
   flex-flow: row wrap;
+  gap: 10px;
   padding: 0em;
-  margin: 0.5em 0;
-  align-items: center;
-  align-content: flex-start;
+  margin: 0.25em 0;
+  align-items: flex-start;
   position: relative;
 }
 @media screen and (max-width: 767px) {
@@ -1804,20 +1798,21 @@ select::-ms-expand {
     flex-basis: 100%;
   }
 }
-.flex-form .form_grp._titleAlignTop {
-  align-items: flex-start;
-  flex-wrap: nowrap;
+.flex-form .form_grp._titleAlignCenter:has(.form_content input) .form_title, .flex-form .form_grp._titleAlignCenter:has(.form_content select) .form_title {
+  padding: 1em 0;
 }
-.flex-form .form_grp._titleAlignTop .form_title {
-  margin-top: 2px;
-  min-width: 90px;
+.flex-form .form_grp._titleAlignCenter:has(.form_content input[type=checkbox]) .form_title {
+  padding: 0;
+}
+.flex-form .form_grp .labelEffect {
+  flex: 1 1 auto;
 }
 .flex-form .form_grp .help {
   font-size: 0.9em;
   color: #333;
   text-align: right;
   margin-left: auto;
-  padding: 0 0.5em;
+  padding: 0.35em 0;
   display: block;
   width: 100%;
 }
@@ -1832,6 +1827,9 @@ select::-ms-expand {
 }
 .flex-form .form_grp.error .form_title {
   color: #FF3E4D;
+}
+.flex-form .form_grp.error .form_inline .labelEffect {
+  background: deepskyblue;
 }
 .flex-form .form_grp.error .form_inline .labelEffect:before {
   width: 50%;
@@ -1852,20 +1850,23 @@ select::-ms-expand {
   box-shadow: 0 0 0 2px #FF3E4D;
   outline: none;
 }
-.flex-form .form_grp._row {
+.flex-form .form_grp._column {
   flex-direction: column;
   align-items: flex-start;
 }
-.flex-form .form_grp._row .form_title {
+.flex-form .form_grp._column .form_title {
   padding: 0.5em 0;
 }
-.flex-form .form_grp._row .form_content {
+.flex-form .form_grp._column .form_content {
   padding-left: 0;
+}
+.flex-form .form_grp._column .labelEffect {
+  flex: 1 1 100%;
 }
 .flex-form .datepick {
   display: flex;
   flex: 0 1 100%;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   align-items: flex-start;
   position: relative;
 }
@@ -1911,7 +1912,7 @@ select::-ms-expand {
   position: absolute;
   content: "~";
   left: -1em;
-  top: 50%;
+  top: 55px;
   font-size: 1.125rem;
 }
 .flex-form .datepick .btn {
@@ -1947,13 +1948,13 @@ select::-ms-expand {
 }
 .flex-form .form_content.form_inline {
   display: flex;
+  gap: 10px;
   align-items: flex-end;
   padding-bottom: 0em;
   border-bottom: none;
 }
 .flex-form .form_content.form_inline .labelEffect {
   flex: 1 1 auto;
-  margin-right: 1%;
   align-self: center;
   margin-bottom: 0.2em;
 }
@@ -1994,6 +1995,7 @@ select::-ms-expand {
   color: #999;
 }
 .flex-form .form_content .help {
+  padding: 0.1em 0.5em;
   background: #f8f8f8;
 }
 .flex-form .form_content p, .flex-form .form_content p.notice {
@@ -2065,6 +2067,11 @@ select::-ms-expand {
   padding: 0.1em 1em;
   max-width: auto;
   right: 0.1em;
+}
+
+.form_flex {
+  display: flex;
+  gap: 6px;
 }
 
 form .form_grp,
@@ -6554,7 +6561,6 @@ body .overlay {
 
 .content_block .flex-form {
   width: 96%;
-  max-width: 50em;
   margin: 1em auto 2em 1em;
 }
 
