@@ -1798,6 +1798,9 @@ select::-ms-expand {
     flex-basis: 100%;
   }
 }
+.flex-form .form_grp._titleAlignCenter .form_title {
+  background: pink;
+}
 .flex-form .form_grp._titleAlignCenter:has(.form_content input) .form_title, .flex-form .form_grp._titleAlignCenter:has(.form_content select) .form_title {
   padding: 1em 0;
 }
@@ -1827,9 +1830,6 @@ select::-ms-expand {
 }
 .flex-form .form_grp.error .form_title {
   color: #FF3E4D;
-}
-.flex-form .form_grp.error .form_inline .labelEffect {
-  background: deepskyblue;
 }
 .flex-form .form_grp.error .form_inline .labelEffect:before {
   width: 50%;
@@ -1977,6 +1977,20 @@ select::-ms-expand {
 }
 .flex-form .form_content.form_inline .labelEffect.short input, .flex-form .form_content.form_inline .labelEffect.zip input, .flex-form .form_content.form_inline .labelEffect.ext input, .flex-form .form_content.form_inline .labelEffect.county input, .flex-form .form_content.form_inline .labelEffect.dist input {
   text-align: center;
+}
+.flex-form .form_content.form_inline .labelEffect.range {
+  flex-direction: row;
+}
+.flex-form .form_content.form_inline .labelEffect.range span {
+  margin: 0 10px;
+}
+.flex-form .form_content.form_inline .labelEffect.range + span {
+  font-size: 0.875rem;
+  align-self: center;
+  justify-content: center;
+  white-space: nowrap;
+  margin-right: 0.5em;
+  color: #999;
 }
 .flex-form .form_content.form_inline .labelEffect.address {
   flex: 1 1 auto;
