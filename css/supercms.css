@@ -531,6 +531,10 @@ kbd kbd {
   text-align: center;
   padding: 0.3em 0;
 }
+.btn_grp._center {
+  width: 100%;
+  justify-content: center;
+}
 
 .upload_grp .upload_btn, input[type=reset], input[type=submit], button,
 input[type=button], .btn-secondary, .btn-primary, .btn-text, .btn-purple, .btn-red, .btn-orange, .btn-yellow, .btn-blue, .btn-green, .btn {
@@ -1906,7 +1910,7 @@ select::-ms-expand {
   max-width: calc(50% - 1em);
 }
 .flex-form .datepick .endDate {
-  margin-left: 2em;
+  margin-left: 1em;
 }
 .flex-form .datepick .endDate:after {
   position: absolute;
@@ -2105,16 +2109,13 @@ form .radio_grp, div .check_grp,
 div .radio_grp {
   display: flex;
   flex-flow: column wrap;
-  font-size: 0.875rem;
   position: relative;
 }
 form .check_grp label,
 form .radio_grp label, div .check_grp label,
 div .radio_grp label {
   position: relative;
-  margin-bottom: 0.5em;
   display: flex;
-  align-items: flex-start;
 }
 form .check_grp label input,
 form .radio_grp label input, div .check_grp label input,
@@ -6636,6 +6637,9 @@ body .overlay {
 .publish_block .flex-form input[type=text], .publish_block .flex-form input[type=password], .publish_block .flex-form input[type=calendar] {
   padding: 0.5em;
 }
+.publish_block .flex-form .datepick {
+  flex-direction: column;
+}
 .publish_block .flex-form .datepick .btn {
   top: 0em;
 }
@@ -8436,12 +8440,13 @@ h1.title, h2.title {
   margin-right: auto;
 }
 .setting_block .upload_block .item, .setting_block .link_block .item {
-  padding: 0.5em;
+  padding: 1em 1.5em;
   background: #FFF;
   border-radius: 0.5em;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  gap: 10px;
   margin-bottom: 0.5em;
   box-shadow: -2px 3px 10px rgba(0, 0, 0, 0.25);
   transition: 0.3s ease;
@@ -8513,21 +8518,23 @@ h1.title, h2.title {
     margin-right: 0;
   }
 }
-.setting_block .link_block .item {
-  padding-top: 30px;
+.setting_block .upload_block .item .labelEffect, .setting_block .link_block .item .labelEffect {
+  flex: 1 1 100%;
 }
 .setting_block .link_block .item .additional {
   margin-left: 0;
-  align-self: flex-end;
+  align-self: stretch;
 }
-@media screen and (max-width: 1399px) {
-  .setting_block .link_block .item .additional {
-    margin-bottom: 1.5em;
-  }
+.setting_block .link_block .item .additional .btn {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 .setting_block .link_block .flex-form {
   display: flex;
   flex-flow: row nowrap;
+  gap: 10px;
 }
 @media screen and (max-width: 1399px) {
   .setting_block .link_block .flex-form {
@@ -8535,13 +8542,12 @@ h1.title, h2.title {
   }
 }
 .setting_block .link_block .flex-form .form_grp {
-  flex: 1 1 30%;
-  margin-right: 1em;
+  flex: 1 1 100%;
+  gap: 0;
 }
 @media screen and (max-width: 1399px) {
   .setting_block .link_block .flex-form .form_grp {
     flex: 1 1 100%;
-    margin-bottom: 1.5em !important;
   }
 }
 
@@ -8660,6 +8666,14 @@ h1.title, h2.title {
   justify-content: center;
   text-align: center;
 }
+.login h3 {
+  font-size: 1.5em;
+  text-align: center;
+  opacity: 0.5;
+}
+.login .flex-form .form_grp {
+  gap: 0;
+}
 .login .form_content {
   border: none;
   display: flex;
@@ -8679,7 +8693,7 @@ h1.title, h2.title {
   position: absolute;
   font-size: 0.75rem;
   color: #888;
-  bottom: 1em;
+  bottom: 1.5em;
   left: 10%;
   width: 80%;
   line-height: 1.4;
