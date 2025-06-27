@@ -4250,6 +4250,7 @@ aside {
   width: 16em;
   height: 100%;
   position: fixed;
+  background: #f1eee8;
   transform: translateZ(0);
   padding-top: 4em;
   padding-bottom: 3em;
