@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+    <meta name="robots" content="noindex" /><!-- 使用 noindex 禁止 Google 搜尋建立索引，套版時請工程師刪掉這行 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SuperCMS</title>
+    <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries [if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- hyUI css -->
+    <link rel="stylesheet" href="css/supercms.css">
+    <!-- <link rel="stylesheet" href="css/animate.min.css"> -->
+    <!-- favicon -->
+    <link href="images/favicon.png" rel="icon" type="image/x-icon">
+    <!-- highlight -->
+    <link rel="stylesheet" href="vendor/highlight/github-gist.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- header load header.htm -->
+        <header></header>
+        <!-- aside load aside.htm -->
+        <aside></aside>
+        <!-- 主要內容區 -->
+        <div class="content">
+            <!-- breadcrumb路徑 -->
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="light.htm">首頁</a></li>
+                    <li><a href="#">節點</a></li>
+                    <li>節點</li>
+                </ul>
+            </div>
+            <!-- gird section -->
+            <div class="grid">
+                <div class="container">
+                    <div class="title">
+                        <h2>權限管理</h2>
+                        <button class="btn btn-primary btn-adv">
+                            <i class="i_search"></i></button>
+                    </div>
+                    <!-- flex-12 -->
+                    <div class="flex-12">
+                        <div class="adv_search">
+                            <div class="col">
+                                <div class="content_block">
+                                    <div class="_head">
+                                        <h3>查詢</h3>
+                                    </div>
+                                    <div class="_content">
+                                        <div class="flex-form flex-6-6">
+                                            <div class="form_grp">
+                                                <div class="labelEffect">
+                                                    <label>文字表單</label>
+                                                    <input name="" type="text" value="" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="form_grp">
+                                                <div class="labelEffect">
+                                                    <label>請選擇人員</label>
+                                                    <div class="form_flex">
+                                                        <input name="" type="text" value="">
+                                                        <button class="btn btn-primary btn-text">選擇</button> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_grp">
+                                                <div class="form_title">行內排列</div>
+                                                <div class="form_content">
+                                                    <div class="radio_grp form_inline">
+                                                        <label><input name="radioSample" type="radio" value=""><span>選項一</span></label>
+                                                        <label><input name="radioSample" type="radio" value=""><span>選項二</span></label>
+                                                        <label><input name="radioSample" type="radio" value=""><span>選項三</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_grp">
+                                                <div class="form_title">行內排列</div>
+                                                <div class="form_content">
+                                                    <div class="check_grp form_inline">
+                                                        <label><input name="" type="checkbox" value=""><span>選項一</span></label>
+                                                        <label><input name="" type="checkbox" value=""><span>選項二</span></label>
+                                                        <label><input name="" type="checkbox" value=""><span>選項三</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_grp datepick">
+                                                <div class="labelEffect">
+                                                    <label>日期選擇</label>
+                                                    <input name="" type="date" value="" class="calendar">
+                                                </div>
+                                            </div>
+                                            <div class="form_grp datepick">
+                                                <div class="startDate">
+                                                    <div class="labelEffect">
+                                                        <label>開始日期<abbr>*</abbr></label>
+                                                        <input name="" type="date" value="" class="calendar">
+                                                    </div>
+                                                    <div class="help">說明文字</div>
+                                                </div>
+                                                <div class="endDate">
+                                                    <div class="labelEffect">
+                                                        <label>結束日期<abbr>*</abbr></label>
+                                                        <input name="" type="date" value="" class="calendar">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_grp">
+                                                <div class="labelEffect">
+                                                    <label>下拉選單樣式</label>
+                                                    <select id="" name="">
+                                                        <!-- <option value="" disabled selected></option> -->
+                                                        <option value="">選項1</option>
+                                                        <option value="">選項2</option>
+                                                        <option value="">選項3</option>
+                                                        <option value="">選項4</option>
+                                                        <option value="">選項5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn_grp">
+                                            <button class="btn reset">取消</button>
+                                            <button class="btn btn-primary">確認</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flex-12 -->
+                    <div class="flex-12">
+                        <div class="col ">
+                            <!-- 左側widget -->
+                            <div class="widget_block">
+                                <div class="_head">
+                                    <h3>目錄樹</h3>
+                                </div>
+                                <div class="_content">
+                                    <!-- 目錄樹區塊 -->
+                                    <div class="treeview_block">
+                                        <ul class="treeview">
+                                            <li class="collapsable">
+                                                <div class="hitarea collapsable-hitarea"></div><span class="folder">機關單位</span>
+                                                <ul class="treeview">
+                                                    <li class="collapsable">
+                                                        <div class="hitarea collapsable-hitarea"></div><span class="folder">A單位</span>
+                                                        <ul id="folder21" class="treeview">
+                                                            <li><a href="#" class=""><span class="file">a-1單位</span></a></li>
+                                                            <li><a href="#" class=""><span class="file">a-2單位</span></a></li>
+                                                            <li><a href="#" class=""><span class="file">a-3單位</span></a></li>
+                                                            <li class="last"><a href="#"><span class="file">a-4單位</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="collapsable lastCollapsable">
+                                                        <span class="folder">某科</span>
+                                                        <ul id="folder21" class="treeview">
+                                                            <li><a href="#"><span class="file">一組</span></a></li>
+                                                            <li><a href="#"><span class="file">二組</span></a></li>
+                                                            <li><a href="#"><span class="file">三組</span></a></li>
+                                                            <li><a href="#"><span class="file">四組</span></a></li>
+                                                            <li><a href="#"><span class="file">五組</span></a></li>
+                                                            <li><a href="#"><span class="file">六組</span></a></li>
+                                                            <li><a href="#"><span class="file">七組</span></a></li>
+                                                            <li class="last"><a href="#"><span class="file">八組</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="expandable">
+                                                <div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">其他單位</span>
+                                                <ul class="treeview">
+                                                    <li><span class="file">其他單位</span></li>
+                                                    <li class="last"><span class="file">其他單位</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="last"><span class="file">其他單位</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 中央區塊 -->
+                            <div class="content_block">
+                                <div class="_head">
+                                    <h3>申報作業</h3>
+                                </div>
+                                <div class="_content">
+                                    <div class="flex-form">
+                                        <!-- 活動型式 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>活動型式：</div>
+                                            <div class="form_content">
+                                                <div class="check_grp form_inline">
+                                                <label><input name="" type="checkbox" value="" checked><span>實體活動</span></label>
+                                                <label><input name="" type="checkbox" value=""><span>線上活動</span></label>
+                                                </div>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 活動名稱 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>活動名稱：</div>
+                                            <div class="form_content">
+                                                <div class="form_flex">
+                                                    <input name="" type="text" value="">
+                                                    <button class="btn btn-primary btn-text">名稱檢核</button>
+                                                </div>
+                                                <div class="additional">
+                                                    <div class="check_grp form_inline">
+                                                        <label><input name="checkSample" type="checkbox" value=""><span>項目1</span></label>
+                                                        <label><input name="checkSample" type="checkbox" value=""><span>項目2</span></label>
+                                                        <label><input name="checkSample" type="checkbox" value=""><span>項目3</span></label>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 線上活動網址 -->
+                                        <div class="form_grp">
+                                            <div div class="form_title">線上活動網址：</div>
+                                            <div class="form_content">
+                                                <input name="" type="text" value="">
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 活動地址 -->
+                                        <div class="form_grp">
+                                            <div class="labelEffect">
+                                                <label><abbr>*</abbr>活動地址</label>
+                                                <div class="innerWrap">
+                                                    <!-- 活動地點 -->
+                                                    <div class="form_grp">
+                                                        <div class="form_title"><abbr style="color: blue">*</abbr>活動地點：</div>
+                                                        <div class="form_content form_inline">
+                                                            <div class="labelEffect short">
+                                                                <select id="" name="">
+                                                                    <option value="">項目1</option>
+                                                                    <option value="">項目2</option>
+                                                                    <option value="">項目3</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="labelEffect">
+                                                                <input name="" type="text" value="" placeholder="若您的場地不在選單內，請在此輸入場地名稱">
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="help">說明文字</div> -->
+                                                    </div>
+                                                    <!-- 地點代號 -->
+                                                    <div class="form_grp">
+                                                        <div class="form_title"><abbr>*</abbr>地點代號：</div>
+                                                        <div class="form_content form_inline">
+                                                            <div class="form_flex">
+                                                                <div class="labelEffect short">
+                                                                    <input name="" type="text" value="" placeholder="縣市代碼">
+                                                                </div>
+                                                                <div class="labelEffect">
+                                                                    <select id="" name="">
+                                                                        <option value="">請選擇縣市代碼</option>
+                                                                        <option value="">項目1</option>
+                                                                        <option value="">項目2</option>
+                                                                        <option value="">項目3</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_flex">
+                                                                <div class="labelEffect short">
+                                                                    <input name="" type="text" value="" placeholder="地點代號">
+                                                                </div>
+                                                                <div class="labelEffect">
+                                                                    <select id="" name="">
+                                                                        <option value="">請選擇地點代號</option>
+                                                                        <option value="">項目1</option>
+                                                                        <option value="">項目2</option>
+                                                                        <option value="">項目3</option>
+                                                                    </select>
+                                                                </div>
+                                                                <button class="btn btn-secondary ">查詢</button>
+                                                            </div>
+                                                            <div class="labelEffect">
+                                                                <textarea></textarea>
+                                                                <div class="help">場地如需複選，按CTRL並點選所需場地，選擇結果反灰色即可</div>
+                                                            </div>
+                                                            <!-- <div class="help">說明文字</div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 地點代號地址 -->
+                                        <div class="form_grp">
+                                            <div class="labelEffect">
+                                                <label>地點代號地址</label>
+                                                <div class="innerWrap">
+                                                    <!-- 活動展演起迄日期時間 -->
+                                                    <div class="form_grp _column">
+                                                        <div class="form_title"><abbr>*</abbr>活動展演起迄日期時間：</div>
+                                                        <div class="form_content">
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">開始時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">結束時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <!-- <div class="btn_grp">
+                                                                    <button class="btn btn-reset">清除重填</button>
+                                                                </div> -->
+                                                            </div>
+                                                            <div class="help">日期輸入範例︰20101231(西元年月日共8碼)</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 日期時間詳細資料 -->
+                                                    <div class="form_grp _column">
+                                                        <div class="form_title">日期時間詳細資料：</div>
+                                                        <div class="form_content">
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">開始時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">結束時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <!-- <div class="btn_grp">
+                                                                    <button class="btn btn-reset">清除重填</button>
+                                                                </div> -->
+                                                            </div>
+                                                            <div class="help">日期輸入範例︰20101231(西元年月日共8碼)</div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-primary"><i class="i_add"></i>日期時間</button> 
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">開始時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">結束時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">開始時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">結束時間</b>
+                                                                        <!-- 日期 -->
+                                                                        <input name="" type="date" value="" class="calendar">
+                                                                        <!-- 時 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="時">
+                                                                        <span class="punctuation">:</span>
+                                                                        <!-- 分 -->
+                                                                        <input name="" type="text" value="" class="" placeholder="分">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-primary"><i class="i_add"></i>帶入活動起迄日期時間</button> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 活動展演時間說明 -->
+                                        <div class="form_grp _column">
+                                            <div class="form_title">活動展演時間說明（限400字）：</div>
+                                            <div class="form_content">
+                                                <textarea></textarea>
+                                                <!-- <div class="help">限400字</div> -->
+                                                <div class="btn_grp">
+                                                    <button class="btn btn-normal">辭庫</button> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 活動主辦者國籍 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>活動主辦者國籍：</div>
+                                            <div class="form_content form_inline">
+                                                <div class="form_flex">
+                                                    <div class="labelEffect">
+                                                        <input name="" type="text" value="" placeholder="活動主辦者國籍">
+                                                    </div>
+                                                    <div class="labelEffect">
+                                                        <select id="" name="">
+                                                            <option value="">項目1</option>
+                                                            <option value="">項目2</option>
+                                                            <option value="">項目3</option>
+                                                        </select>
+                                                    </div>
+                                                    <button class="btn btn-secondary">查詢</button>
+                                                </div>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 展演者 -->
+                                        <div class="form_grp">
+                                            <div class="labelEffect">
+                                                <label><abbr>*</abbr>展演者</label>
+                                                <div class="innerWrap">
+                                                    <div class="form_grp _column">
+                                                        <!-- <div class="form_title">次標題</div> -->
+                                                        <div class="form_content">
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <!-- 展演者代碼 -->
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">展演者代碼：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="展演者代碼">
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="展演者名稱">
+                                                                        </div>
+                                                                        <button class="btn btn-secondary">查詢</button>
+                                                                    </div>
+                                                                    <!-- 國籍代碼 -->
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">國籍代碼：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="國籍代碼">
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <select id="" name="">
+                                                                                <option value="">項目1</option>
+                                                                                <option value="">項目2</option>
+                                                                                <option value="">項目3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <button class="btn btn-secondary">查詢</button>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <!-- <div class="btn_grp">
+                                                                    <button class="btn btn-reset" title="刪除"><i class="i_close"></i></button>
+                                                                </div> -->
+                                                            </div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-primary"><i class="i_add"></i>新增展演者</button> 
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <!-- 展演者代碼 -->
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">展演者代碼：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="展演者代碼">
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="展演者名稱">
+                                                                        </div>
+                                                                        <button class="btn btn-secondary">查詢</button>
+                                                                    </div>
+                                                                    <!-- 國籍代碼 -->
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">國籍代碼：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="國籍代碼">
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <select id="" name="">
+                                                                                <option value="">項目1</option>
+                                                                                <option value="">項目2</option>
+                                                                                <option value="">項目3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <button class="btn btn-secondary">查詢</button>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <!-- 展演者代碼 -->
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">展演者代碼：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="展演者代碼">
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="展演者名稱">
+                                                                        </div>
+                                                                        <button class="btn btn-secondary">查詢</button>
+                                                                    </div>
+                                                                    <!-- 國籍代碼 -->
+                                                                    <div class="form_flex">
+                                                                        <b class="tipInfo">國籍代碼：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="國籍代碼">
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <select id="" name="">
+                                                                                <option value="">項目1</option>
+                                                                                <option value="">項目2</option>
+                                                                                <option value="">項目3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <button class="btn btn-secondary">查詢</button>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 活動型態 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>活動型態：</div>
+                                            <div class="form_content">
+                                                <select id="" name="">
+                                                    <option value="">項目1</option>
+                                                    <option value="">項目2</option>
+                                                    <option value="">項目3</option>
+                                                </select>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 活動類別大類碼 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>活動類別大類碼：</div>
+                                            <div class="form_content">
+                                                <select id="" name="">
+                                                    <option value="">項目1</option>
+                                                    <option value="">項目2</option>
+                                                    <option value="">項目3</option>
+                                                </select>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 活動類別小類碼 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>活動類別小類碼：</div>
+                                            <div class="form_content">
+                                                <select id="" name="">
+                                                    <option value="">項目1</option>
+                                                    <option value="">項目2</option>
+                                                    <option value="">項目3</option>
+                                                </select>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 活動類別細類碼 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>活動類別細類碼：</div>
+                                            <div class="form_content">
+                                                <select id="" name="">
+                                                    <option value="">項目1</option>
+                                                    <option value="">項目2</option>
+                                                    <option value="">項目3</option>
+                                                </select>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 聯絡信箱 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">聯絡信箱：</div>
+                                            <div class="form_content">
+                                                <input name="" type="email" value="" placeholder="請輸入聯絡信箱">
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 聯絡電話 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">聯絡電話：</div>
+                                            <div class="form_content">
+                                                <input name="" type="text" value="" placeholder="請輸入聯絡電話">
+                                                <div class="help">電話及分機(請加'#')輸入方式，例︰02-21234567#2234</div>
+                                            </div>
+                                        </div>
+                                        <!-- 系列型活動代號 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">系列型活動代號：</div>
+                                            <div class="form_content form_inline">
+                                                <div class="form_flex">
+                                                    <div class="labelEffect">
+                                                        <input name="" type="text" value="" placeholder="輸入活動代號">
+                                                    </div>
+                                                </div>
+                                                <div class="form_flex">
+                                                    <b class="tipInfo">活動名稱：</b>
+                                                    <div class="labelEffect">
+                                                        <input name="" type="text" value="" placeholder="輸入活動名稱">
+                                                    </div>
+                                                    <button class="btn btn-secondary">查詢</button>
+                                                </div>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 系列型活動年度 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">系列型活動年度：</div>
+                                            <div class="form_content">
+                                                <input name="" type="text" value="" placeholder="readonly" readonly>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 系列型活動範圍 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">系列型活動範圍：</div>
+                                            <div class="form_content">
+                                                <input name="" type="text" value="" placeholder="readonly" readonly>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 付費與否 -->
+                                        <div class="form_grp">
+                                            <div class="form_title"><abbr>*</abbr>付費與否：</div>
+                                            <div class="form_content">
+                                                <select id="" name="">
+                                                    <option value="">項目1</option>
+                                                    <option value="">項目2</option>
+                                                    <option value="">項目3</option>
+                                                </select>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 票價或費用 -->
+                                        <div class="form_grp">
+                                            <div class="labelEffect">
+                                                <label>票價或費用：</label>
+                                                <div class="innerWrap">
+                                                    <div class="form_grp _column">
+                                                        <!-- <div class="form_title">次標題</div> -->
+                                                        <div class="form_content">
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <!-- 票價 -->
+                                                                    <div class="form_flex">
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="辭庫內容">
+                                                                        </div>
+                                                                        <button class="btn btn-normal">辭庫</button>
+                                                                        <b class="tipInfo">票價：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="請輸入金額">
+                                                                        </div>
+                                                                        <b class="tipInfo">元</b>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <!-- <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div> -->
+                                                            </div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-primary"><i class="i_add"></i>新增票價或費用</button> 
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="辭庫內容">
+                                                                        </div>
+                                                                        <button class="btn btn-normal">辭庫</button>
+                                                                        <b class="tipInfo">票價：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="請輸入金額">
+                                                                        </div>
+                                                                        <b class="tipInfo">元</b>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="辭庫內容">
+                                                                        </div>
+                                                                        <button class="btn btn-normal">辭庫</button>
+                                                                        <b class="tipInfo">票價：</b>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="請輸入金額">
+                                                                        </div>
+                                                                        <b class="tipInfo">元</b>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 票價或費用說明-->
+                                        <div class="form_grp _column">
+                                            <div class="form_title">票價或費用說明(限300字)：</div>
+                                            <div class="form_content">
+                                                <textarea></textarea>
+                                                <!-- <div class="help">限400字</div> -->
+                                                <div class="btn_grp">
+                                                    <button class="btn btn-normal">辭庫</button> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 售票系統 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">售票系統：</div>
+                                            <div class="form_content">
+                                                <select id="" name="">
+                                                    <option value="">項目1</option>
+                                                    <option value="">項目2</option>
+                                                    <option value="">項目3</option>
+                                                </select>
+                                                <div class="help">(可多選，請按 Ctrl 鍵點選項目)</div>
+                                            </div>
+                                        </div>
+                                        <!-- 活動內容簡述 -->
+                                        <div class="form_grp _column">
+                                            <div class="form_title">活動內容簡述(限4000字)：</div>
+                                            <div class="form_content">
+                                                <textarea></textarea>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 重要活動 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">重要活動：</div>
+                                            <div class="form_content">
+                                                <div class="radio_grp form_inline">
+                                                    <label><input name="radioSample" type="radio" value="" checked><span>否</span></label>
+                                                    <label><input name="radioSample" type="radio" value=""><span>是</span></label>
+                                                </div>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 活動網址 -->
+                                        <div class="form_grp">
+                                            <div class="form_title">活動網址：</div>
+                                            <div class="form_content">
+                                                <input name="" type="text" value="" placeholder="請輸入活動網址">
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <!-- 辦理單位 -->
+                                        <div class="form_grp">
+                                            <div class="labelEffect">
+                                                <label><abbr>*</abbr>辦理單位：</label>
+                                                <div class="innerWrap">
+                                                    <!-- 辦理單位 -->
+                                                    <div class="form_grp">
+                                                        <!-- <div class="form_title"><abbr>*</abbr>次標題</div> -->
+                                                        <div class="form_content form_inline">
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <div class="labelEffect short">
+                                                                            <select id="" name="">
+                                                                                <option value="">項目1</option>
+                                                                                <option value="">項目2</option>
+                                                                                <option value="">項目3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="單位代碼" readonly>
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="單位名稱">
+                                                                        </div>
+                                                                        <button class="btn btn-secondary ">查詢</button>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <!-- <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div> -->
+                                                            </div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-primary"><i class="i_add"></i>新增辦理單位</button> 
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <div class="labelEffect short">
+                                                                            <select id="" name="">
+                                                                                <option value="">項目1</option>
+                                                                                <option value="">項目2</option>
+                                                                                <option value="">項目3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="單位代碼" readonly>
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="單位名稱">
+                                                                        </div>
+                                                                        <button class="btn btn-secondary ">查詢</button>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="flex_full">
+                                                                <div class="column">
+                                                                    <div class="form_flex">
+                                                                        <div class="labelEffect short">
+                                                                            <select id="" name="">
+                                                                                <option value="">項目1</option>
+                                                                                <option value="">項目2</option>
+                                                                                <option value="">項目3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="單位代碼" readonly>
+                                                                        </div>
+                                                                        <div class="labelEffect">
+                                                                            <input name="" type="text" value="" placeholder="單位名稱">
+                                                                        </div>
+                                                                        <button class="btn btn-secondary ">查詢</button>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 操作按鈕 -->
+                                                                <div class="btn_grp">
+                                                                    <button class="btn btn-remove" title="刪除"><i class="i_close"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="help">說明文字</div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 活動影片 -->
+                                        <div class="form_grp _column">
+                                            <div class="form_title">活動影片：</div>
+                                            <div class="form_content">
+                                                <textarea></textarea>
+                                                <div class="help">輸入活動影片的嵌入 HTML 程式碼</div>
+                                            </div>
+                                        </div>
+                                        <!-- 活動圖片 --> 
+                                        <!-- 備註欄 -->
+                                        <div class="form_grp _column">
+                                            <div class="form_title">備註欄(限1200字)：</div>
+                                            <div class="form_content">
+                                                <textarea></textarea>
+                                                <!-- <div class="help">說明文字</div> -->
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="btn_grp _center">
+                                            <button class="btn reset">清除資料</button>
+                                            <button class="btn btn-primary">主要按鈕</button>
+                                            <button class="btn btn-secondary ">次要按鈕</button>
+                                            <button class="btn btn-normal">一般按鈕</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JS-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="vendor/jquery.easing.min.js"></script>
+    <!-- template customize js -->
+    <script src="js/customize.js"></script>
+    <!-- highlight -->
+    <script src="vendor/highlight/highlight.pack.js"></script>
+    <!-- tree view -->
+    <script src="vendor/treeview/jquery.treeview.js"></script>
+    <script>
+    // first example
+    $(".treeview .treeview").treeview();
+    $('header').load("header.htm");
+    $('aside').load("aside.htm");
+    </script>
+</body>
+
+</html>
