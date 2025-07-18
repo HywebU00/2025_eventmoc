@@ -1749,6 +1749,19 @@ table.table_sprite tr:nth-child(even) {
     right: 0.3em;
   }
 }
+.scroll-select::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-select::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.scroll-select::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 select::-ms-expand {
   display: none;
 }
@@ -2342,13 +2355,16 @@ div .upload_grp .innerWrap {
 }
 
 .scrollArea {
+  flex: 1 1 auto;
+}
+.scrollArea select[multiple] {
+  height: 120px;
+  overflow-y: scroll;
+  border: none;
   background: #F5F5F5;
   border-radius: 0.2em;
-  padding: 0.65em 0.75em;
   border: 1px solid #dcdcdc;
-  max-height: 120px;
-  overflow-y: scroll;
-  flex: 1 1 auto;
+  padding: 0.65em 0.75em;
 }
 .scrollArea ol, .scrollArea ul {
   margin: 0;

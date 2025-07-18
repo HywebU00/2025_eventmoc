@@ -245,17 +245,17 @@ $(function () {
           $this.addClass("used");
         } else {
           $this.removeClass("used");
-          $(this).find(":selected").text("");
+          // $(this).find(":selected").text("");
         }
       });
-    $(this)
-      .find("select")
-      .focus(function () {
-        var item = $(this).find("option").first();
-        $(item).text("請選擇");
-        $(item).removeAttr("disabled");
-        $(this).removeClass("used");
-      });
+    // $(this)
+    //   .find("select")
+    //   .focus(function () {
+    //     var item = $(this).find("option").first();
+    //     $(item).text("請選擇");
+    //     $(item).removeAttr("disabled");
+    //     $(this).removeClass("used");
+    //   });
   });
   $(window, document, undefined).ready(function () {
     var $ripples = $(".ripples");
