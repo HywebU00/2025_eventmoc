@@ -2341,6 +2341,25 @@ div .upload_grp .innerWrap {
   padding: 0 4px;
 }
 
+.scrollArea {
+  background: #F5F5F5;
+  border-radius: 0.2em;
+  padding: 0.65em 0.75em;
+  border: 1px solid #dcdcdc;
+  max-height: 120px;
+  overflow-y: scroll;
+  flex: 1 1 auto;
+}
+.scrollArea ol, .scrollArea ul {
+  margin: 0;
+}
+
+.btn_grp_function {
+  display: grid;
+  align-content: center;
+  min-height: -webkit-fill-available;
+}
+
 label,
 legend {
   display: flex;
