@@ -1659,9 +1659,6 @@ table.table_sprite tr:nth-child(even) {
 .table_wrapper table .report-form .flex-form .form_grp {
   margin: 2px 0;
 }
-.table_wrapper table .report-form textarea {
-  min-height: auto;
-}
 .table_wrapper table .report-form .btn_grp {
   margin: 4px 0;
 }
@@ -5906,6 +5903,29 @@ div.tag ul li.active a {
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: auto;
+  scrollbar-color: #000 rgba(0, 0, 0, 0.2);
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #000;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 hr {
