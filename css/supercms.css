@@ -535,6 +535,10 @@ kbd kbd {
   width: 100%;
   justify-content: center;
 }
+.btn_grp._right {
+  width: 100%;
+  justify-content: flex-end;
+}
 
 .upload_grp .upload_btn, input[type=reset], input[type=submit], button,
 input[type=button], .btn-remove, .btn-reset, .btn-normal, .btn-secondary, .btn-primary, .btn-text, .btn-purple, .btn-red, .btn-orange, .btn-yellow, .btn-blue, .btn-green, .btn {
@@ -552,7 +556,7 @@ input[type=button], .btn-remove, .btn-reset, .btn-normal, .btn-secondary, .btn-p
 }
 
 .btn {
-  padding: 0.75em 2em;
+  padding: 0.65em 2em;
   touch-action: manipulation;
   position: relative;
   overflow: hidden;
@@ -805,10 +809,11 @@ input[type=button], .btn-remove, .btn-reset, .btn-normal, .btn-secondary, .btn-p
 }
 
 .btn-remove {
-  background-color: #939393;
+  background-color: transparent;
   color: #fff;
   border-radius: 4px;
   transition: 0.3s ease-out;
+  border-color: transparent;
 }
 .btn-remove:hover, .btn-remove:focus {
   cursor: pointer;
@@ -819,12 +824,11 @@ input[type=button], .btn-remove, .btn-reset, .btn-normal, .btn-secondary, .btn-p
   transform: translateY(3px);
 }
 .btn-remove.active {
-  background: rgb(134.25, 134.25, 134.25);
+  background: rgba(0, 0, 0, 0);
   cursor: pointer;
 }
 .btn-remove i {
-  filter: invert(100%);
-  opacity: 1;
+  opacity: 0.75;
 }
 .btn-remove i span {
   filter: invert(100%);
@@ -1376,7 +1380,7 @@ table td.hasInput {
 }
 table td {
   border: #ebebeb 1px solid;
-  word-break: break-all;
+  word-break: keep-all;
   border-left: none;
   border-right: none;
   text-align: left;
@@ -1627,30 +1631,39 @@ table.table_sprite tr:nth-child(even) {
 
 .table_wrapper {
   margin-bottom: 2em;
+  width: 100%;
+  display: block;
+  clear: both;
+  zoom: 1;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding-bottom: 1em;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translate3d(0, 0, 0);
 }
-@media screen and (max-width: 991px) {
-  .table_wrapper {
-    width: 100%;
-    display: block;
-    clear: both;
-    zoom: 1;
-    overflow-y: hidden;
-    overflow-x: auto;
-    padding-bottom: 1em;
-    -webkit-overflow-scrolling: touch;
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-  .table_wrapper:before, .table_wrapper:after {
-    content: "";
-    display: table;
-  }
-  .table_wrapper:after {
-    clear: both;
-  }
-  .table_wrapper table {
-    width: 100%;
-    min-width: 600px;
-  }
+.table_wrapper:before, .table_wrapper:after {
+  content: "";
+  display: table;
+}
+.table_wrapper:after {
+  clear: both;
+}
+.table_wrapper table {
+  width: 100%;
+  min-width: 600px;
+}
+.table_wrapper table .report-form h4 {
+  font-size: 1.125rem;
+  color: #755934;
+}
+.table_wrapper table .report-form .flex-form .form_grp {
+  margin: 2px 0;
+}
+.table_wrapper table .report-form textarea {
+  min-height: auto;
+}
+.table_wrapper table .report-form .btn_grp {
+  margin: 4px 0;
 }
 
 .scroltable {
@@ -1777,6 +1790,9 @@ select::-ms-expand {
     margin-left: 0;
   }
 }
+.labelEffect + .btn {
+  margin-bottom: 0.2em !important;
+}
 .labelEffect.password_toggle input[type=text], .labelEffect.password_toggle input[type=password], .labelEffect.hasBtn input[type=text], .labelEffect.hasBtn input[type=password] {
   letter-spacing: 0.1em;
 }
@@ -1784,7 +1800,7 @@ select::-ms-expand {
   width: 100%;
   color: #222;
   align-items: flex-start;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0.6em 0;
   transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -1798,7 +1814,6 @@ select::-ms-expand {
   margin: 0;
   padding: 0.2em 1em;
   font-size: 0.938em;
-  height: 48px;
 }
 .labelEffect .btn-icon {
   flex: 0 1 3em;
@@ -1809,6 +1824,7 @@ select::-ms-expand {
   padding: 0.2em 0.25em;
   font-size: 0.938em;
   position: absolute;
+  border-color: transparent;
   right: 2px;
 }
 .labelEffect .btn-icon i {
@@ -2033,8 +2049,8 @@ select::-ms-expand {
 }
 .flex-form .form_title {
   font-weight: bold;
-  padding-top: 12px;
-  font-size: 1.125rem;
+  padding-top: 8px;
+  font-size: 1rem;
 }
 @media screen and (max-width: 991px) {
   .flex-form .form_title {
@@ -2201,7 +2217,7 @@ select::-ms-expand {
   margin-top: 10px;
 }
 .flex-form .form_content .btn_grp .btn {
-  height: 44px;
+  padding: 6px 12px;
 }
 .flex-form .form_content .flex_full {
   width: 100%;
@@ -2233,7 +2249,6 @@ select::-ms-expand {
   width: 100%;
 }
 .form_flex [class^=btn] {
-  height: 44px;
   margin: 0;
   padding: 0.2em 1em;
   min-width: -moz-fit-content;
@@ -2262,7 +2277,7 @@ div .radio_grp {
   display: flex;
   flex-flow: column wrap;
   position: relative;
-  padding-top: 12px;
+  padding-top: 7px;
 }
 form .check_grp label,
 form .radio_grp label, div .check_grp label,
@@ -2342,14 +2357,14 @@ div .upload_grp .innerWrap {
 
 .tipInfo {
   word-break: keep-all;
-  line-height: 48px;
+  line-height: 38px;
   color: #555;
   font-size: 0.875rem;
 }
 
 .punctuation {
   display: inline-block;
-  line-height: 48px;
+  line-height: 38px;
   font-weight: bold;
   padding: 0 4px;
 }
@@ -2409,7 +2424,7 @@ select,
 button {
   color: #333;
   border: 1px solid #dcdcdc;
-  padding: 0.65em 0.75em;
+  padding: 0.45em 0.65em;
   box-sizing: border-box;
   transition: 0.3s ease-out;
 }
@@ -2530,7 +2545,7 @@ input[type=submit].active {
 textarea {
   color: #333;
   border: 1px solid #dcdcdc;
-  padding: 0.65em 0.75em;
+  padding: 0.45em 0.65em;
   box-sizing: border-box;
   transition: 0.3s ease-out;
   align-self: stretch;
@@ -2575,9 +2590,7 @@ select:focus {
 
 select {
   font-weight: bold;
-  height: 44px;
-  line-height: 44px;
-  padding: 0 24px 0 0.5em;
+  padding: 0.4em 24px 0.4em 0.65em;
   border-radius: 0;
   background: url(../images/basic/icon_select_arrow.svg) no-repeat right center #F5F5F5;
   background-size: 20px;
@@ -2600,7 +2613,7 @@ select:-moz-focusring {
   flex: 1 1 100%;
   color: #333;
   border: 1px solid #dcdcdc;
-  padding: 0.65em 0.75em;
+  padding: 0.45em 0.65em;
   box-sizing: border-box;
   transition: 0.3s ease-out;
   background: url(../images/basic/icon_select_arrow.svg) no-repeat right 10px center #F5F5F5;
