@@ -6554,7 +6554,7 @@ body .overlay {
   display: flex;
   align-self: stretch;
   flex-direction: column;
-  width: calc(100% - 260px);
+  width: 100%;
   border-radius: 0.5em;
   position: relative;
   padding: 1.5em;
