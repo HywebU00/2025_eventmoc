@@ -1751,6 +1751,9 @@ table.table_sprite tr:nth-child(even) {
   z-index: 2;
 }
 
+._limitHigh .scroltable-wrapper {
+  overflow: hidden;
+}
 ._limitHigh .scroltable-container {
   max-height: 50vh;
 }
