@@ -6911,7 +6911,7 @@ h3.sub-title {
 }
 .content_block .cb_function .flex-form,
 .content_block .cb_function .btn {
-  margin: 0;
+  margin: 0.25em 0;
 }
 
 .widget_block {
