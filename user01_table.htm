@@ -28,14 +28,6 @@
         <aside></aside>
         <!-- 主要內容區 -->
         <div class="content">
-            <!-- breadcrumb路徑 -->
-            <div class="breadcrumb">
-                <ul>
-                    <li><a href="light.htm">首頁</a></li>
-                    <li><a href="#">節點</a></li>
-                    <li>節點</li>
-                </ul>
-            </div>
             <!-- gird section -->
             <div class="grid">
                 <div class="container">
@@ -189,9 +181,27 @@
                                     <h3>申報作業 - table 水平 scroll</h3>
                                 </div>
                                 <div class="_content">
-                                    <!-- 1 -->
+                                    <!-- 功能 -->
+                                    <div class="cb_function">
+                                        <div>
+                                            <button class="btn btn-text">通知會員回報活動人次</button>
+                                            <label><input name="checkSample" type="checkbox" value=""><span>同時發信給自己</span></label>
+                                        </div>
+                                        <div>
+                                            <div class="flex-form">
+                                                <div class="form_grp">
+                                                    <div class="form_title" style="width: 120px;">特定E-mail</div>
+                                                    <div class="form_content">
+                                                        <input name="" type="text" value="">
+                                                        <div class="help">多個E-mail請用『,』隔開</div>
+                                                    </div>
+                                                    <button class="btn btn-text">通知特定E-mail回報活動人次</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- 表格樣式 -->
-                                    <div class="table_wrapper">
+                                    <div class="table_wrapper _limitHigh">
                                         <table class="table_hover">
                                             <thead>
                                                 <tr>
@@ -495,6 +505,258 @@
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
+                                                <tr>
+                                                    <td class="hasInput"><input type="checkbox"></td>
+                                                    <td class="num">3</td>
+                                                    <td>
+                                                        <div class="report-form" style="width: 600px;">
+                                                            <div class="flex-form">
+                                                                <h4>實體活動回報</h4>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">展演天數/場次：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <input name="" type="text" value="">
+                                                                            <select id="" name="">
+                                                                                <!-- <option value="" disabled selected></option> -->
+                                                                                <option value="選項1">選項1</option>
+                                                                                <option value="選項2">選項2</option>
+                                                                                <option value="選項3">選項3</option>
+                                                                                <option value="選項4">選項4</option>
+                                                                                <option value="選項5">選項5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報人次資料：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="radio_grp form_inline">
+                                                                            <label><input name="radioSample" type="radio" value=""><span>有資料</span></label>
+                                                                            <label><input name="radioSample" type="radio" value=""><span>無資料</span></label>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報人次：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <input name="" type="text" value="">
+                                                                            <select id="" name="">
+                                                                                <!-- <option value="" disabled selected></option> -->
+                                                                                <option value="選項1">選項1</option>
+                                                                                <option value="選項2">選項2</option>
+                                                                                <option value="選項3">選項3</option>
+                                                                                <option value="選項4">選項4</option>
+                                                                                <option value="選項5">選項5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報狀態：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <select id="" name="">
+                                                                                <!-- <option value="" disabled selected></option> -->
+                                                                                <option value="選項1">選項1</option>
+                                                                                <option value="選項2">選項2</option>
+                                                                                <option value="選項3">選項3</option>
+                                                                                <option value="選項4">選項4</option>
+                                                                                <option value="選項5">選項5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報狀態：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <textarea autocomplete="off"></textarea>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="btn_grp _right">
+                                                                    <button class="btn reset">清除以上資料</button>
+                                                                    <button class="btn btn-primary">儲存</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>B01A0000054</td>
+                                                    <td>牛年迎新春3333</td>
+                                                    <td>新北市</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2021/12/31 18:30</td>
+                                                    <td></td>
+                                                    <td>中華民國</td>
+                                                    <td>http://ccaeventsys.hyweb.com.tw/default.asp</td>
+                                                    <td>凌網</td>
+                                                    <td>展覽</td>
+                                                    <td>視覺藝術（藝術品與美術）</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2021/2/3 下午 05:40:56</td>
+                                                    <td></td>
+                                                    <td>待審核</td>
+                                                    <td></td>
+                                                    <td>--︰-<br></td>
+                                                    <td>否</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>0</td>
+                                                    <td>林天瑞一生的創作表現，以自然風景、寫生題材為主。</td>
+                                                    <td></td>
+                                                    <td>-- ~ --</td>
+                                                    <td>中華民國</td>
+                                                    <td>實體活動</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="hasInput"><input type="checkbox"></td>
+                                                    <td class="num">4</td>
+                                                    <td>
+                                                        <div class="report-form" style="width: 600px;">
+                                                            <div class="flex-form">
+                                                                <h4>實體活動回報</h4>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">展演天數/場次：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <input name="" type="text" value="">
+                                                                            <select id="" name="">
+                                                                                <!-- <option value="" disabled selected></option> -->
+                                                                                <option value="選項1">選項1</option>
+                                                                                <option value="選項2">選項2</option>
+                                                                                <option value="選項3">選項3</option>
+                                                                                <option value="選項4">選項4</option>
+                                                                                <option value="選項5">選項5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報人次資料：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="radio_grp form_inline">
+                                                                            <label><input name="radioSample" type="radio" value=""><span>有資料</span></label>
+                                                                            <label><input name="radioSample" type="radio" value=""><span>無資料</span></label>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報人次：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <input name="" type="text" value="">
+                                                                            <select id="" name="">
+                                                                                <!-- <option value="" disabled selected></option> -->
+                                                                                <option value="選項1">選項1</option>
+                                                                                <option value="選項2">選項2</option>
+                                                                                <option value="選項3">選項3</option>
+                                                                                <option value="選項4">選項4</option>
+                                                                                <option value="選項5">選項5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報狀態：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <select id="" name="">
+                                                                                <!-- <option value="" disabled selected></option> -->
+                                                                                <option value="選項1">選項1</option>
+                                                                                <option value="選項2">選項2</option>
+                                                                                <option value="選項3">選項3</option>
+                                                                                <option value="選項4">選項4</option>
+                                                                                <option value="選項5">選項5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_grp">
+                                                                    <div class="form_title">回報狀態：</div>
+                                                                    <div class="form_content">
+                                                                        <div class="form_flex">
+                                                                            <textarea autocomplete="off"></textarea>
+                                                                        </div>
+                                                                        <!-- <div class="help">說明文字</div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="btn_grp _right">
+                                                                    <button class="btn reset">清除以上資料</button>
+                                                                    <button class="btn btn-primary">儲存</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>B01A0000054</td>
+                                                    <td>牛年迎新春3333</td>
+                                                    <td>新北市</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2021/12/31 18:30</td>
+                                                    <td></td>
+                                                    <td>中華民國</td>
+                                                    <td>http://ccaeventsys.hyweb.com.tw/default.asp</td>
+                                                    <td>凌網</td>
+                                                    <td>展覽</td>
+                                                    <td>視覺藝術（藝術品與美術）</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2021/2/3 下午 05:40:56</td>
+                                                    <td></td>
+                                                    <td>待審核</td>
+                                                    <td></td>
+                                                    <td>--︰-<br></td>
+                                                    <td>否</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>0</td>
+                                                    <td>林天瑞一生的創作表現，以自然風景、寫生題材為主。</td>
+                                                    <td></td>
+                                                    <td>-- ~ --</td>
+                                                    <td>中華民國</td>
+                                                    <td>實體活動</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -509,12 +771,20 @@
     <!-- JS-->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="vendor/jquery.easing.min.js"></script>
+    <script src="vendor/scrolltable/jquery.scroltable.min.js"></script><!-- scrolltable -->
     <!-- template customize js -->
     <script src="js/customize.js"></script>
     <!-- highlight -->
     <script src="vendor/highlight/highlight.pack.js"></script>
     <!-- tree view -->
     <script src="vendor/treeview/jquery.treeview.js"></script>
+    <script>
+    // first example
+    $(".treeview .treeview").treeview();
+    </script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
     <script>
     // first example
     $(".treeview .treeview").treeview();
