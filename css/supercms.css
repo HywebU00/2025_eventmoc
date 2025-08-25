@@ -1668,11 +1668,6 @@ table.table_sprite tr:nth-child(even) {
 .table_wrapper table .report-form .btn_grp {
   margin: 4px 0;
 }
-.table_wrapper._limitHigh .scroltable-container {
-  max-height: 50vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
 
 .scroltable {
   min-width: 600px !important;
@@ -1754,6 +1749,10 @@ table.table_sprite tr:nth-child(even) {
   background: url(../vendor/scrolltable/images/arrow-right.png) no-repeat right 10px center;
   content: "";
   z-index: 2;
+}
+
+._limitHigh .scroltable-container {
+  max-height: 50vh;
 }
 
 @keyframes arrow_left {
