@@ -1671,6 +1671,7 @@ table.table_sprite tr:nth-child(even) {
 .table_wrapper._limitHigh .scroltable-container {
   max-height: 50vh;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .scroltable {
