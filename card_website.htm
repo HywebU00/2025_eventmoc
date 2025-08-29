@@ -47,56 +47,68 @@
                         <div class="col">
                             <div class="content_block">
                                 <div class="_head">
-                                    <!-- 資料分類 -->
-                                    <div class="tag">
-                                        <ul>
-                                            <li class="active"><a href="#">標籤1</a></li>
-                                            <li><a href="#">標籤2</a></li>
-                                            <li><a href="#">標籤3</a></li>
-                                            <li><a href="#">標籤4</a></li>
-                                            <li><a href="#">標籤5</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- 資料處理 -->
-                                    <div class="control_panel">
-                                        <!-- 預設隱藏，有勾選check再顯示 -->
-                                        <div class="dropdown">
-                                            <button class="btn dropdown-btn">
-                                                <i class="i_setting"></i>批次處理</button>
-                                            <div class="dropdown-content">
-                                                <ul>
-                                                    <li>
-                                                        <button class="btn">
-                                                            <i class="i_edit"></i>編輯</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="btn">
-                                                            <i class="i_setting"></i>設定</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="btn btn-delete">
-                                                            <i class="i_trash"></i>刪除 </button>
-                                                    </li>
-                                                </ul>
+                                    <h3>標題</h3>
+                                </div>
+                                <div class="_content">
+                                    <!-- 功能面板 -->
+                                    <div class="functionPanel">
+                                        <!-- 資料處理 -->
+                                        <div class="control_panel">
+                                            <!-- 預設隱藏，有勾選check再顯示 -->
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-btn"><i class="i_setting"></i>批次處理</button>
+                                                <div class="dropdown-content">
+                                                    <ul>
+                                                        <li><button class="btn"><i class="i_edit"></i>編輯</button></li>
+                                                        <li><button class="btn"><i class="i_top"></i>置頂</button></li>
+                                                        <li><button class="btn"><i class="i_check"></i>審核 - 公開</button></li>
+                                                        <li><button class="btn"><i class="i_check"></i>審核 - 不公開</button></li>
+                                                        <li><button class="btn"><i class="i_check"></i>審核 - 下架</button></li>
+                                                        <li><button class="btn"><i class="i_setting"></i>設定</button></li>
+                                                        <li><button class="btn btn-delete"><i class="i_trash"></i>刪除 </button></li>
+                                                    </ul>
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="quick_btn">
+                                            <button class="btn btn-orange"><i class="i_add"></i>新增</button>
                                         </div>
                                     </div>
                                     <!-- 頁碼 -->
                                     <div class="pagination">
                                         <form action="" class="form_inline">
-                                            <div class="total"> 共<span>308</span>筆資料，第<span>1/18</span>頁，每頁顯示 <select name="" id="">
+                                            <div class="total">
+                                                <button class="firstPage">第一頁</button>，
+                                                共<span>308</span>筆資料，第<span>1/18</span>頁，每頁顯示
+                                                <select name="" id="">
                                                     <option value="">10</option>
                                                     <option value="">30</option>
                                                     <option value="">50</option>
                                                     <option value="">100</option>
-                                                </select> 筆 </div>
+                                                </select>
+                                                筆，目前在第
+                                                <select name="" id="">
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                </select>頁，
+                                                <button class="lastPage">最後一頁</button>
+                                            </div>
                                         </form>
+                                        <ul class="page">
+                                            <li class="first"><a href="#" title="第一頁">第一頁 </a></li>
+                                            <li class="prev"><a href="#" title="回上一頁">回上一頁 </a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">...</a></li>
+                                            <li><a href="#">8</a></li>
+                                            <li><a href="#">9</a></li>
+                                            <li><a href="#">10</a></li>
+                                            <li class="next"><a href="#" title="下一頁">下一頁 </a></li>
+                                            <li class="last"><a href="#" title="最後一頁">最後一頁 </a></li>
+                                        </ul>
                                     </div>
-                                    <div class="quick_btn">
-                                        <button class="btn btn-orange"><i class="i_add"></i>新增</button>
-                                    </div>
-                                </div>
-                                <div class="_content">
                                     <!-- 卡片式 -->
                                     <div class="card">
                                         <div class="item">
@@ -344,6 +356,25 @@
                                     </div>
                                     <!-- 頁碼 -->
                                     <div class="pagination">
+                                        <form action="" class="form_inline">
+                                            <div class="total">
+                                                <button class="firstPage">第一頁</button>，
+                                                共<span>308</span>筆資料，第<span>1/18</span>頁，每頁顯示
+                                                <select name="" id="">
+                                                    <option value="">10</option>
+                                                    <option value="">30</option>
+                                                    <option value="">50</option>
+                                                    <option value="">100</option>
+                                                </select>
+                                                筆，目前在第
+                                                <select name="" id="">
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                </select>頁，
+                                                <button class="lastPage">最後一頁</button>
+                                            </div>
+                                        </form>
                                         <ul class="page">
                                             <li class="first"><a href="#" title="第一頁">第一頁 </a></li>
                                             <li class="prev"><a href="#" title="回上一頁">回上一頁 </a></li>
