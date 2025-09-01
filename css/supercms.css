@@ -1995,6 +1995,7 @@ select::-ms-expand {
 @media screen and (max-width: 991px) {
   .flex-form .form_grp {
     flex-direction: column;
+    align-items: stretch;
   }
 }
 .flex-form .datepick {
@@ -5644,7 +5645,7 @@ div.tag ul li.active a {
 }
 
 *[class^=notice] {
-  padding: 0.4em 2.5em;
+  padding: 0.4em 1em;
   display: block;
   font-size: 0.938em;
   flex-grow: 1;
@@ -6166,7 +6167,6 @@ body .overlay {
   font-size: 0.75rem;
   color: #FFF;
   position: absolute;
-  top: 70px;
   right: 1rem;
 }
 .btn-back i {
@@ -6621,10 +6621,6 @@ body .overlay {
 }
 .content_block ._head, .widget_block ._head, .publish_block ._head {
   margin-bottom: 0.25em;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
   position: relative;
   width: 100%;
 }
@@ -6633,80 +6629,6 @@ body .overlay {
   color: #333;
   font-size: 0.875rem;
   font-weight: normal;
-}
-.content_block ._head .sort_panel, .widget_block ._head .sort_panel, .publish_block ._head .sort_panel {
-  padding: 0.4em 1em;
-  border-radius: 0.25em;
-  display: flex;
-  align-items: center;
-  align-self: flex-start;
-  justify-content: flex-start;
-  flex-flow: row nowrap;
-  flex: 1 1 auto;
-}
-@media screen and (max-width: 991px) {
-  .content_block ._head .sort_panel, .widget_block ._head .sort_panel, .publish_block ._head .sort_panel {
-    flex: 1 1 100%;
-    padding: 0;
-  }
-}
-.content_block ._head .sort_panel .check_grp label, .widget_block ._head .sort_panel .check_grp label, .publish_block ._head .sort_panel .check_grp label {
-  margin-bottom: 0;
-  margin-top: auto;
-}
-.content_block ._head .sort_panel .btn, .widget_block ._head .sort_panel .btn, .publish_block ._head .sort_panel .btn {
-  min-width: 6em;
-  padding: 0.25em 0.25em 0.25em 1em;
-}
-.content_block ._head .sort_panel .btn i, .widget_block ._head .sort_panel .btn i, .publish_block ._head .sort_panel .btn i {
-  transform: scale(0.75);
-}
-.content_block ._head .sort_panel .flex-form, .content_block ._head .sort_panel .btn-grp, .widget_block ._head .sort_panel .flex-form, .widget_block ._head .sort_panel .btn-grp, .publish_block ._head .sort_panel .flex-form, .publish_block ._head .sort_panel .btn-grp {
-  flex: 0 1 auto;
-}
-@media screen and (max-width: 767px) {
-  .content_block ._head .sort_panel .flex-form, .content_block ._head .sort_panel .btn-grp, .widget_block ._head .sort_panel .flex-form, .widget_block ._head .sort_panel .btn-grp, .publish_block ._head .sort_panel .flex-form, .publish_block ._head .sort_panel .btn-grp {
-    flex: 0 1 100%;
-  }
-}
-.content_block ._head .sort_panel .btn_grp, .widget_block ._head .sort_panel .btn_grp, .publish_block ._head .sort_panel .btn_grp {
-  flex-flow: row nowrap;
-}
-.content_block ._head .sort_panel .btn_grp .btn, .widget_block ._head .sort_panel .btn_grp .btn, .publish_block ._head .sort_panel .btn_grp .btn {
-  background: transparent;
-  border: 1px solid #DDD;
-}
-.content_block ._head .sort_panel .btn_grp .btn i, .widget_block ._head .sort_panel .btn_grp .btn i, .publish_block ._head .sort_panel .btn_grp .btn i {
-  font-size: 0.75rem;
-  opacity: 0.5;
-}
-@media screen and (max-width: 767px) {
-  .content_block ._head .sort_panel .btn_grp, .widget_block ._head .sort_panel .btn_grp, .publish_block ._head .sort_panel .btn_grp {
-    display: none;
-  }
-}
-.content_block ._head .data-title, .widget_block ._head .data-title, .publish_block ._head .data-title {
-  margin-top: 1.5em !important;
-}
-.content_block ._head .data-title input[type=text], .widget_block ._head .data-title input[type=text], .publish_block ._head .data-title input[type=text] {
-  background: rgb(254.5394190871, 245.6348547718, 218.4605809129);
-  font-weight: 600;
-}
-.content_block ._head .data-title .labelEffect, .widget_block ._head .data-title .labelEffect, .publish_block ._head .data-title .labelEffect {
-  margin-left: 0 !important;
-}
-.content_block ._head .flex-form, .widget_block ._head .flex-form, .publish_block ._head .flex-form {
-  margin: 0;
-  font-size: 0.875rem;
-}
-.content_block ._head .flex-form .form_grp, .widget_block ._head .flex-form .form_grp, .publish_block ._head .flex-form .form_grp {
-  margin: 0;
-  align-items: flex-end;
-}
-.content_block ._head .flex-form .form_content, .widget_block ._head .flex-form .form_content, .publish_block ._head .flex-form .form_content {
-  padding: 0;
-  margin: auto 0 0 0;
-  border: none;
 }
 .content_block ._head .tag, .widget_block ._head .tag, .publish_block ._head .tag {
   flex: 1 1 100%;
@@ -6728,10 +6650,12 @@ body .overlay {
   border: none !important;
 }
 .content_block ._content p, .widget_block ._content p, .publish_block ._content p {
-  max-width: 50em;
   font-size: 0.875em;
   color: #888;
   margin: 0;
+}
+.content_block ._content p.notice, .widget_block ._content p.notice, .publish_block ._content p.notice {
+  margin: 4px 0;
 }
 .content_block .chart_info, .widget_block .chart_info, .publish_block .chart_info {
   width: 220px;
@@ -6783,11 +6707,97 @@ body .overlay {
   }
 }
 
+.sort_panel {
+  margin: 0 0 10px;
+  border-radius: 0.25em;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  flex: 1 1 auto;
+}
+@media screen and (max-width: 991px) {
+  .sort_panel {
+    flex: 1 1 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+.sort_panel .check_grp label {
+  margin-bottom: 0;
+  margin-top: auto;
+}
+.sort_panel .btn {
+  min-width: 6em;
+  padding: 0.25em 0.25em 0.25em 1em;
+}
+.sort_panel .btn i {
+  transform: scale(0.75);
+}
+.sort_panel .flex-form,
+.sort_panel .btn-grp {
+  flex: 0 1 auto;
+  margin: 0 !important;
+}
+@media screen and (max-width: 767px) {
+  .sort_panel .flex-form,
+  .sort_panel .btn-grp {
+    flex: 0 1 100%;
+  }
+}
+.sort_panel .btn_grp {
+  flex-flow: row nowrap;
+  margin-top: 0;
+}
+.sort_panel .btn_grp .btn {
+  background: transparent;
+  border: 1px solid #DDD;
+}
+.sort_panel .btn_grp .btn i {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+@media screen and (max-width: 767px) {
+  .sort_panel .btn_grp {
+    display: none;
+  }
+}
+.sort_panel div .check_grp {
+  padding-top: 0;
+}
+
+.data-title {
+  margin-top: 1.5em !important;
+}
+.data-title input[type=text] {
+  background: rgb(254.5394190871, 245.6348547718, 218.4605809129);
+  font-weight: 600;
+}
+.data-title .labelEffect {
+  margin-left: 0 !important;
+}
+
+.flex-form {
+  margin: 0;
+  font-size: 0.875rem;
+}
+.flex-form .form_grp {
+  margin: 0;
+}
+.flex-form .form_content {
+  padding: 0;
+  margin: auto 0 0 0;
+  border: none;
+}
+
 .functionPanel {
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 10px 0 0;
   row-gap: 10px;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
 }
 .quick_btn {
   text-align: right;
@@ -6796,7 +6806,6 @@ body .overlay {
 }
 @media screen and (max-width: 767px) {
   .quick_btn {
-    margin: 0 0 0.5em auto;
     flex: 0 1 50%;
   }
 }
