@@ -663,3 +663,171 @@ function rwdTable() {
 }
 rwdTable();
 
+/*-----------------------------------*/
+///////////////置頂go to top////////////
+/*-----------------------------------*/
+$(window).bind('scroll', function() {
+    if ($(this).scrollTop() > 200) {
+        $('.scrollToTop').fadeIn();
+    } else {
+        $('.scrollToTop').fadeOut();
+    }
+});
+/*-----------------------------------*/
+/////click event to scroll to top//////
+/*-----------------------------------*/
+$('.scrollToTop').click(function(e) {
+    $('html, body').animate({ scrollTop: 0 }, 400, 'easeOutExpo');
+    e.preventDefault();
+});
+$('.scrollToTop').keydown(function(e) {
+    _body.find('a.goCenter').focus();
+    e.preventDefault();
+});
+
+// fontSize
+// 先把可能的舊事件移除，避免重複綁定造成「加了又被減掉」
+// $(".fontSize > button").off("click.fontsize");
+// $(".fontSize ul button").off("click.fontsize");
+// $(document).off("click.fontsize");
+
+// // 預設：medium 有 .act（只設在當前元件底下，避免影響別處）
+// $(".fontSize").each(function () {
+//   $(this).find(".mediumSize").addClass("act");
+// });
+
+// // A. 點「文字大小」→ 開/關當前 ul.show（並關閉其它組）
+// $(".fontSize > button").on("click.fontsize", function (e) {
+//   e.preventDefault();
+//   e.stopPropagation();
+
+//   const $wrap = $(this).closest(".fontSize");
+//   const $ul   = $wrap.find("> ul");
+
+//   // 關掉其它 fontSize 的展開
+//   $(".fontSize > ul").not($ul).removeClass("show");
+
+//   // 只切換當前這一組
+//   $ul.toggleClass("show");
+// });
+
+// // B. 點 ul 裡任一按鈕 → 切換 .act
+// $(".fontSize ul button").on("click.fontsize", function (e) {
+//   e.preventDefault();
+//   e.stopPropagation();
+
+//   const $ul   = $(this).closest("ul");
+//   const $btns = $ul.find("button");
+
+//   $btns.removeClass("act");
+//   $(this).addClass("act");
+
+//   // 若需要：點完就收合
+//   $ul.removeClass("show");
+// });
+
+// // C. 點擊外部 → 關閉所有 fontSize 的下拉
+// $(document).on("click.fontsize", function () {
+//   $(".fontSize > ul").removeClass("show");
+// });
+
+// fontSize
+// var fontSizeDropdownStatus = false;
+
+// // 預設 mediumSize → 加上 .act
+// $(".fontSize .mediumSize").addClass("act");
+
+// // 點擊 .fontSize > button → 開關 ul.show
+// $(".fontSize > button").each(function () {
+//   $(this).off("click.fontSize").on("click.fontSize", function (e) {
+//     e.preventDefault();
+//     e.stopPropagation(); // 避免冒泡到 document
+//     $(this).siblings("ul").toggleClass("show");
+//     fontSizeDropdownStatus = true;
+//     $(this).blur();
+//   });
+// });
+
+// // 點擊 ul 裡的按鈕 → 切換 .act，保持 ul.show
+// $(".fontSize ul button").off("click.fontSize").on("click.fontSize", function (e) {
+//   e.preventDefault();
+//   e.stopPropagation(); // 避免冒泡到 document
+//   var $ul = $(this).closest("ul");
+//   $ul.find("button").removeClass("act");
+//   $(this).addClass("act");
+//   // 不移除 .show，保持展開
+// });
+
+// // 點擊外部 → 關閉 ul.show
+// $(document).off("click.fontSize").on("click.fontSize", function (e) {
+//   if (!$(e.target).closest(".fontSize").length) {
+//     $(".fontSize > ul").removeClass("show");
+//     fontSizeDropdownStatus = false;
+//   }
+// });
+
+
+// fontSize
+var fontSizeDropdownStatus = false;
+
+// 預設 mediumSize → 加上 .act & .content 字級 100%
+$(".fontSize .smallSize").addClass("act");
+$(".content").css("font-size", "100%");
+$("aside nav a span").css("font-size", "100%");
+
+// 點擊 .fontSize > button → 開關 ul.show
+$(".fontSize > button").each(function () {
+  $(this).off("click.fontSize").on("click.fontSize", function (e) {
+    e.preventDefault();
+    e.stopPropagation(); // 避免冒泡到 document
+    $(this).siblings("ul").toggleClass("show");
+    fontSizeDropdownStatus = true;
+    $(this).blur();
+  });
+});
+
+// 點擊 ul 裡的按鈕 → 切換 .act & 調整字級
+$(".fontSize ul button").off("click.fontSize").on("click.fontSize", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  var $ul = $(this).closest("ul");
+  $ul.find("button").removeClass("act");
+  $(this).addClass("act");
+
+  // 根據 class 切換 .content 字級
+  if ($(this).hasClass("smallSize")) {
+    $(".content").css("font-size", "100%");
+    $("aside nav a span").css("font-size", "100%");
+  } else if ($(this).hasClass("mediumSize")) {
+    $(".content").css("font-size", "120%");
+    $("aside nav a span").css("font-size", "120%");
+  } else if ($(this).hasClass("largeSize")) {
+    $(".content").css("font-size", "140%");
+    $("aside nav a span").css("font-size", "140%");
+  }
+});
+
+// 點擊外部 → 關閉 ul.show
+$(document).off("click.fontSize").on("click.fontSize", function (e) {
+  if (!$(e.target).closest(".fontSize").length) {
+    $(".fontSize > ul").removeClass("show");
+    fontSizeDropdownStatus = false;
+  }
+});
+
+// ESC 關閉選單並回焦控制鈕
+$(document).off("keydown.fontSize").on("keydown.fontSize", function (e) {
+  if (e.key === "Escape" || e.keyCode === 27) {
+    var $open = $(".fontSize > ul.show");
+    if ($open.length) {
+      $open.removeClass("show");
+      var $activeWrap = $(document.activeElement).closest(".fontSize");
+      if ($activeWrap.length) {
+        $activeWrap.find("> button").focus();
+      }
+    }
+  }
+});
+
+

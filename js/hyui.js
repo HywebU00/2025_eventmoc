@@ -458,7 +458,7 @@ $(function() {
         e.preventDefault();
     });
     $('.scrollToTop').keydown(function(e) {
-        _body.find('a:first').focus();
+        _body.find('a.goCenter').focus();
         e.preventDefault();
     });
     /*--------------------------------------------------------*/

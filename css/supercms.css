@@ -2070,6 +2070,7 @@ select::-ms-expand {
   font-weight: bold;
   padding-top: 8px;
   font-size: 1rem;
+  min-width: 142px;
 }
 @media screen and (max-width: 991px) {
   .flex-form .form_title {
@@ -2079,10 +2080,9 @@ select::-ms-expand {
 .flex-form .form_content {
   display: flex;
   flex-flow: row wrap;
-  flex: 1 1 calc(100% - 200px);
+  flex: 1 1 auto;
   align-items: flex-start;
   align-self: stretch;
-  width: 100%;
 }
 .flex-form .form_content [class^=notice] {
   flex: 1 1 100%;
@@ -4422,12 +4422,17 @@ header .control_panel .item.account > a {
   display: block;
   border-radius: 50%;
   overflow: hidden;
+  background: #fff;
+}
+header .control_panel .item.account > a img {
+  width: 22px;
+  height: 22px;
 }
 header .control_panel .dropdown .dropdown-btn {
   position: relative;
 }
 header .control_panel .dropdown .dropdown-btn:hover, header .control_panel .dropdown .dropdown-btn:focus {
-  background: #002D5F;
+  background: #755934;
 }
 header .control_panel .dropdown .dropdown-btn:hover img, header .control_panel .dropdown .dropdown-btn:focus img {
   filter: invert(1);
@@ -4444,14 +4449,24 @@ header .control_panel .dropdown .dropdown-content {
   width: 280px !important;
   left: auto !important;
   right: 0em !important;
+  background: #755934;
+  color: #fff;
 }
-header .control_panel .dropdown .dropdown-content ul {
-  margin-bottom: 2em;
-  border-bottom: 1px solid #DEDEDE;
+header .control_panel .dropdown .dropdown-content .id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .control_panel .dropdown .dropdown-content .id button {
+  width: auto;
+  margin: 0;
+  margin-left: 6px;
+  padding: 0.25em 0.5em;
 }
 header .control_panel .dropdown .dropdown-content ul li {
   font-size: 0.75rem;
   text-align: left;
+  color: #fff;
 }
 header .control_panel .dropdown .dropdown-content .btn-grp {
   display: flex;
@@ -4471,6 +4486,93 @@ header .control_panel .dropdown .dropdown-content .btn-grp .btn-red:hover, heade
   background: #FF3E4D;
   outline: none;
   border: 1px solid #FF3E4D !important;
+}
+header .headerFunction {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+header .headerFunction .fontSize {
+  position: relative;
+}
+header .headerFunction .fontSize button {
+  width: 42px;
+  height: 42px;
+  display: block;
+  border-radius: 50%;
+}
+header .headerFunction .fontSize > button {
+  font-size: 0;
+  background: url(../images/icon/icon_fontSize.svg) 50% 50% no-repeat #fff;
+  background-size: 22px;
+}
+header .headerFunction .fontSize > button:hover, header .headerFunction .fontSize > button:focus {
+  background: url(../images/icon/icon_fontSize-white.svg) 50% 50% no-repeat #755934;
+  background-size: 22px;
+}
+header .headerFunction .fontSize ul {
+  list-style: none;
+  padding: 6px 4px;
+  margin: 0;
+  position: absolute;
+  top: 50px;
+  background: #fff;
+  border-radius: 42px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: none;
+}
+header .headerFunction .fontSize ul button {
+  background: #ddd;
+  color: #333;
+  min-width: auto;
+  margin: 0;
+  width: 38px;
+  height: 38px;
+}
+header .headerFunction .fontSize ul button.act, header .headerFunction .fontSize ul button:hover, header .headerFunction .fontSize ul button:focus {
+  background: #755934;
+  color: #fff;
+}
+header .headerFunction .fontSize ul li:nth-child(2) {
+  margin: 3px 0;
+}
+header .headerFunction .fontSize ul.show {
+  display: block;
+}
+header .headerFunction ul.headerLink {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+header .headerFunction ul.headerLink a {
+  font-size: 0;
+  width: 42px;
+  height: 42px;
+  display: block;
+  background: #666;
+  border-radius: 50%;
+}
+header .headerFunction ul.headerLink a.btnHome {
+  background: url(../images/icon/icon_home.svg) 50% 50% no-repeat #fff;
+  background-size: 22px;
+}
+header .headerFunction ul.headerLink a.btnHome:hover, header .headerFunction ul.headerLink a.btnHome:focus {
+  background: url(../images/icon/icon_home-white.svg) 50% 50% no-repeat #755934;
+  background-size: 22px;
+}
+header .headerFunction ul.headerLink a.btnLogout {
+  background: url(../images/icon/icon_logout.svg) 50% 50% no-repeat #fff;
+  background-size: 22px;
+}
+header .headerFunction ul.headerLink a.btnLogout:hover, header .headerFunction ul.headerLink a.btnLogout:focus {
+  background: url(../images/icon/icon_logout-white.svg) 50% 50% no-repeat #755934;
+  background-size: 22px;
 }
 
 aside {
@@ -5005,7 +5107,7 @@ aside nav > ul > li a img {
 }
 aside nav > ul > li a span {
   color: #fff;
-  font-size: 0.938rem;
+  font-size: 1rem;
 }
 aside nav > ul > li a:hover {
   background: #1e3c72;
@@ -6106,17 +6208,17 @@ body .overlay {
   }
 }
 
-.wrapper {
+∂ .wrapper {
   width: 100%;
   margin: 0px auto;
 }
 @media screen and (max-width: 767px) {
-  .wrapper {
+  ∂ .wrapper {
     overflow: hidden;
     overflow-y: auto;
   }
 }
-.wrapper.noscroll {
+∂ .wrapper.noscroll {
   position: static !important;
   width: 100%;
   height: 100%;
@@ -6133,7 +6235,7 @@ body .overlay {
 
 .content {
   padding-top: 5em;
-  margin-left: 17em;
+  margin-left: 272px;
   margin-right: 1em;
   position: relative;
   transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -6783,7 +6885,7 @@ body .overlay {
   font-size: 0.875rem;
 }
 .flex-form .form_grp {
-  margin: 0;
+  margin: 4px 0;
 }
 .flex-form .form_content {
   padding: 0;
@@ -7228,7 +7330,7 @@ table td .dropdown .dropdown-content .btn.btn-red:hover, table td .dropdown .dro
   padding-bottom: 0.2em;
   text-align: right;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 @media screen and (max-width: 767px) {
   .control_panel {
