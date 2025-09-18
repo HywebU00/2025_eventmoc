@@ -4448,7 +4448,6 @@ header .control_panel .dropdown .dropdown-btn img {
 header .control_panel .dropdown .dropdown-content {
   width: 280px !important;
   left: auto !important;
-  right: 0em !important;
   background: #755934;
   color: #fff;
 }
@@ -4486,6 +4485,19 @@ header .control_panel .dropdown .dropdown-content .btn-grp .btn-red:hover, heade
   background: #FF3E4D;
   outline: none;
   border: 1px solid #FF3E4D !important;
+}
+@media (min-width: 992px) {
+  header .control_panel .dropdown .dropdown-btn {
+    display: none !important;
+  }
+  header .control_panel .dropdown .dropdown-content.is-fixed {
+    position: fixed;
+    top: 0;
+    display: block !important;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1000;
+  }
 }
 header .headerFunction {
   display: flex;

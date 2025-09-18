@@ -340,34 +340,86 @@ $(function () {
   }
 
   //----------------------------------------------------------版頭-----//
-  var dropdownStatus = false;
-  $(".dropdown-btn").each(function (index, el) {
-    $(this).click(function (e) {
-      $(this).siblings(".dropdown-content").addClass("show");
-      dropdownStatus = true;
-      $(this).blur();
-      e.preventDefault();
+  // var dropdownStatus = false;
+  // $(".dropdown-btn").each(function (index, el) {
+  //   $(this).click(function (e) {
+  //     $(this).siblings(".dropdown-content").addClass("show");
+  //     dropdownStatus = true;
+  //     $(this).blur();
+  //     e.preventDefault();
+  //   });
+  // });
+  // $(document).mouseup(function (e) {
+  //   var target = e.target,
+  //     container = $(".dropdown-content");
+  //   if (
+  //     !container.is(e.target) &&
+  //     container.has(e.target).length === 0 &&
+  //     (!$(".dropdown-btn").is(e.target) || !$(".btn-dropdown").is(e.target))
+  //   ) {
+  //     if (
+  //       !(
+  //         ($(".dropdown-btn").is(e.target) ||
+  //           $(".btn-dropdown").is(e.target)) &&
+  //         $(target).siblings(".show").length > 0
+  //       )
+  //     ) {
+  //       container.removeClass("show");
+  //     }
+  //   }
+  // });
+  // 計算並設定 dropdown 右側對齊：right = .headerFunction 的寬度
+  function setPersonalPanelRight() {
+    const $hf = $(".headerFunction");
+    const base = $hf.length ? $hf.outerWidth() : 0; // 也可用 outerWidth(true) 含 margin
+    const offset = 30; // 追加 20px
+    $(".dropdown-content").css("right", (base + offset) + "px");
+  }
+
+  // ---- Personal panel dropdown（Mobile: 下拉；Desktop: 固定顯示）----
+  function bindPersonalPanel() {
+    const isDesktop = $(window).width() > 991;
+    const $btn     = $(".dropdown-btn");
+    const $content = $(".dropdown-content");
+
+    $btn.off(".pp");
+    $(document).off(".pp");
+
+    if (isDesktop) {
+      $btn.hide();
+      $content.addClass("show is-fixed");
+      setPersonalPanelRight();                // 桌機：依 headerFunction 寬度 +20
+    } else {
+      $btn.show();
+      $content
+        .removeClass("is-fixed show")
+        .css("right", "0");                   // 手機：固定 right=0
+
+      $btn.on("click.pp", function (e) {
+        e.preventDefault(); e.stopPropagation();
+        $(this).siblings(".dropdown-content").addClass("show");
+        $(this).blur();
+      });
+
+      $(document).on("mouseup.pp", function (e) {
+        if (!$(e.target).closest(".dropdown-content, .dropdown-btn").length) {
+          $content.removeClass("show");
+        }
+      });
+    }
+  }
+
+  $(function () {
+    bindPersonalPanel();
+    $(window).on("resize.pp", function () {
+      bindPersonalPanel();
+      // 斷點切回桌機時重算 right；回到手機時確保 right=0
+      if ($(window).width() > 991) setPersonalPanelRight();
+      else $(".dropdown-content").css("right", "0");
     });
   });
-  $(document).mouseup(function (e) {
-    var target = e.target,
-      container = $(".dropdown-content");
-    if (
-      !container.is(e.target) &&
-      container.has(e.target).length === 0 &&
-      (!$(".dropdown-btn").is(e.target) || !$(".btn-dropdown").is(e.target))
-    ) {
-      if (
-        !(
-          ($(".dropdown-btn").is(e.target) ||
-            $(".btn-dropdown").is(e.target)) &&
-          $(target).siblings(".show").length > 0
-        )
-      ) {
-        container.removeClass("show");
-      }
-    }
-  });
+
+
   //----------------------------------------------------------選單控制-----//
   // 手機版關閉左側選單
   function _CLOSEMENU() {
