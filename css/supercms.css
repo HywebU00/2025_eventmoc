@@ -6253,11 +6253,11 @@ body .overlay {
   transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .content.full {
-  margin-left: 5em;
+  margin-left: 80px;
 }
 @media screen and (max-width: 1440px) {
   .content {
-    margin-left: 14em;
+    margin-left: 224px;
   }
 }
 @media screen and (max-width: 991px) {
