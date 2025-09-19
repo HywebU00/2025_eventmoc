@@ -369,6 +369,9 @@ $(function () {
   //   }
   // });
   
+  // ---------------------------------------------------------------------
+  // header --------------------------------------------------------------
+  // ---------------------------------------------------------------------
   // 計算並設定 dropdown 右側對齊：right = .headerFunction 的寬度
   function setPersonalPanelRight() {
     const $hf = $(".headerFunction");
@@ -453,6 +456,60 @@ $(function () {
       else $("header .account .dropdown-content").css("right", "0");
     });
   });
+
+  // ---------------------------------------------------------------------
+  // ------- FunctionPanel（頁面工具列）的下拉：只作用在 .functionPanel -------
+  // ---------------------------------------------------------------------
+  function bindFunctionPanelDropdown() {
+    const $root = $(".functionPanel");
+    if (!$root.length) return;
+
+    const $btns     = $root.find(".btn.dropdown-btn");
+    const $contents = $root.find(".dropdown-content");
+
+    // 先清事件（只清本區塊 .fp 命名空間）
+    $btns.off(".fp");
+    $contents.off(".fp");
+    $(document).off(".fp.close").off(".fp.key");
+
+    // 防止冒泡到全域關閉器
+    $btns.on("mousedown.fp mouseup.fp click.fp touchstart.fp touchend.fp", e => e.stopPropagation());
+    $contents.on("mousedown.fp mouseup.fp click.fp touchstart.fp touchend.fp", e => e.stopPropagation());
+
+    // 點按鈕 → 切換同層 dropdown-content 的 .show（並關閉其他）
+    $btns.on("click.fp", function (e) {
+      e.preventDefault();
+      const $panel = $(this).siblings(".dropdown-content");
+      const isOpen = $panel.hasClass("show");
+
+      // 關閉同區塊其他展開的
+      $contents.not($panel).removeClass("show");
+
+      if (isOpen) {
+        $panel.removeClass("show");
+      } else {
+        // 避開可能存在的全域 mouseup/click 關閉造成的「閃一下」
+        setTimeout(() => { $panel.addClass("show"); }, 0);
+      }
+
+      $(this).blur();
+    });
+
+    // 點 .functionPanel 外部 → 關閉（只關這一區）
+    $(document).on("click.fp.close", function (e) {
+      if (!$(e.target).closest(".functionPanel .dropdown-content, .functionPanel .btn.dropdown-btn").length) {
+        $contents.removeClass("show");
+      }
+    });
+
+    // ESC 關閉（只關這一區）
+    $(document).on("keydown.fp.key", function (e) {
+      if (e.key === "Escape" || e.keyCode === 27) $contents.removeClass("show");
+    });
+  }
+  // 啟用
+  $(function () { bindFunctionPanelDropdown(); });
+  $(window).on("resize.fp", function () { bindFunctionPanelDropdown(); });
 
 
   //----------------------------------------------------------選單控制-----//
