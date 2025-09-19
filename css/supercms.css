@@ -4428,6 +4428,19 @@ header .control_panel .item.account > a img {
   width: 22px;
   height: 22px;
 }
+@media (min-width: 992px) {
+  header .control_panel .item.account .dropdown-btn {
+    display: none !important;
+  }
+  header .control_panel .item.account .dropdown-content.is-fixed {
+    position: fixed;
+    top: 0;
+    /* right 交給 JS setPersonalPanelRight() */
+    z-index: 1000;
+    display: block !important; /* 桌機固定顯示，不受 .show 影響 */
+    opacity: 1;
+  }
+}
 header .control_panel .dropdown .dropdown-btn {
   position: relative;
 }
@@ -4485,19 +4498,6 @@ header .control_panel .dropdown .dropdown-content .btn-grp .btn-red:hover, heade
   background: #FF3E4D;
   outline: none;
   border: 1px solid #FF3E4D !important;
-}
-@media (min-width: 992px) {
-  header .control_panel .dropdown .dropdown-btn {
-    display: none !important;
-  }
-  header .control_panel .dropdown .dropdown-content.is-fixed {
-    position: fixed;
-    top: 0;
-    display: block !important;
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 1000;
-  }
 }
 header .headerFunction {
   display: flex;

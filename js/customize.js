@@ -368,41 +368,77 @@ $(function () {
   //     }
   //   }
   // });
+  
   // 計算並設定 dropdown 右側對齊：right = .headerFunction 的寬度
   function setPersonalPanelRight() {
     const $hf = $(".headerFunction");
-    const base = $hf.length ? $hf.outerWidth() : 0; // 也可用 outerWidth(true) 含 margin
-    const offset = 30; // 追加 20px
-    $(".dropdown-content").css("right", (base + offset) + "px");
+    const base = $hf.length ? $hf.outerWidth() : 0;
+    const offset = 30;
+    $("header .account .dropdown-content").css("right", (base + offset) + "px");
   }
 
-  // ---- Personal panel dropdown（Mobile: 下拉；Desktop: 固定顯示）----
   function bindPersonalPanel() {
     const isDesktop = $(window).width() > 991;
-    const $btn     = $(".dropdown-btn");
-    const $content = $(".dropdown-content");
 
+    // 只在 header .account 底下找這一組
+    const $wrap    = $("header .account");
+    const $btn     = $wrap.find(".dropdown-btn");
+    const $content = $wrap.find(".dropdown-content");
+
+    // 清舊事件（限這一組命名空間）
     $btn.off(".pp");
-    $(document).off(".pp");
+    $(document).off(".pp.headerAccount");
 
     if (isDesktop) {
+      // 桌機：隱藏按鈕、內容固定顯示且不綁外部關閉
       $btn.hide();
       $content.addClass("show is-fixed");
-      setPersonalPanelRight();                // 桌機：依 headerFunction 寬度 +20
+      setPersonalPanelRight();
     } else {
+      // 手機：顯示按鈕、內容預設收起，right=0
       $btn.show();
-      $content
-        .removeClass("is-fixed show")
-        .css("right", "0");                   // 手機：固定 right=0
+      $content.removeClass("is-fixed show").css("right", "0");
 
+      // 先清掉舊的未命名 click（這顆只限 header .account .dropdown-btn，不會影響別處）
+      $btn.off("click");        // ← 移除舊版 .click(...)
+      $btn.off(".pp");
+      $content.off(".pp");
+      $(document).off(".pp.headerAccount");
+
+      // ① 防止 document 的 mouseup 把面板關掉：在目標上阻斷冒泡
+      $btn.on("mousedown.pp mouseup.pp click.pp touchstart.pp touchend.pp", function (e) {
+        e.stopPropagation();
+      });
+      $content.on("mousedown.pp mouseup.pp click.pp touchstart.pp touchend.pp", function (e) {
+        e.stopPropagation();
+      });
+
+      // ② 點 .dropdown-btn → 若已展開就關，否則展開（避免閃爍）
       $btn.on("click.pp", function (e) {
-        e.preventDefault(); e.stopPropagation();
-        $(this).siblings(".dropdown-content").addClass("show");
+        e.preventDefault();
+        e.stopPropagation();
+
+        const $panel = $(this).siblings(".dropdown-content");
+        const willOpen = !$panel.hasClass("show");
+
+        // 若要同時只允許一個打開，可先關掉其它（可選）
+        // $("header .account .dropdown-content.show").not($panel).removeClass("show");
+
+        if (willOpen) {
+          // 延後到下一個 event loop，避開全域 mouseup
+          setTimeout(function () {
+            $panel.addClass("show");
+          }, 0);
+        } else {
+          $panel.removeClass("show");
+        }
+
         $(this).blur();
       });
 
-      $(document).on("mouseup.pp", function (e) {
-        if (!$(e.target).closest(".dropdown-content, .dropdown-btn").length) {
+      // ③ 手機才啟用：點 .account 以外才關閉（用 click，限定範圍，避免干擾其他 dropdown）
+      $(document).on("click.pp.headerAccount", function (e) {
+        if (!$(e.target).closest("header .account .dropdown-content, header .account .dropdown-btn").length) {
           $content.removeClass("show");
         }
       });
@@ -413,9 +449,8 @@ $(function () {
     bindPersonalPanel();
     $(window).on("resize.pp", function () {
       bindPersonalPanel();
-      // 斷點切回桌機時重算 right；回到手機時確保 right=0
       if ($(window).width() > 991) setPersonalPanelRight();
-      else $(".dropdown-content").css("right", "0");
+      else $("header .account .dropdown-content").css("right", "0");
     });
   });
 
